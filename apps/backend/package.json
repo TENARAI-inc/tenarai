@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "setup": "./scripts/setup.sh",
+    "prisma:generate": "prisma generate",
+    "prisma:init": "prisma migrate dev --name init",
+    "prisma:reset": "prisma migrate reset",
+    "user:add": "curl -X POST http://localhost:3100/user -H \"Content-Type: application/json\" -d '{\"name\": \"John Doe\", \"email\": \"john.doe@example.com\"}'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "6.6.0",
+    "express": "^5.1.0",
+    "prisma": "^6.6.0",
+    "sqlite3": "^5.1.7"
+  }
+}
