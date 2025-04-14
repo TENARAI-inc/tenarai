@@ -4,10 +4,11 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "setup": "./scripts/setup.sh",
+    "setupdata": "./scripts/setup.sh",
     "prisma:generate": "prisma generate",
-    "prisma:init": "prisma migrate dev --name init",
+    "prisma:migrate": "prisma migrate dev",
     "prisma:reset": "prisma migrate reset",
+    "dev": "tsx watch src/index.ts",
     "user:add": "curl -X POST http://localhost:3100/user -H \"Content-Type: application/json\" -d '{\"name\": \"John Doe\", \"email\": \"john.doe@example.com\"}'"
   },
   "keywords": [],
@@ -17,6 +18,7 @@
     "@prisma/client": "6.6.0",
     "express": "^5.1.0",
     "prisma": "^6.6.0",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "tsx": "^4.19.3"
   }
 }
