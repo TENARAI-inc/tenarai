@@ -9,35 +9,32 @@ export default function User(app: Express, prisma: PrismaClient) {
   });
 
   // GET /user/:id
-  app.get('/user/:id', async (req, res) => {
+  app.get('/users/:id', async (req, res) => {
     const { id } = req.params;
     const user = await prisma.user.findUnique({ where: { id: Number(id) } });
     res.json(user);
   });
 
   // POST /user
-  app.post('/user', async (req, res) => {
-    console.log('req.body', req.body);
-    const { name, email } = req.body;
-    console.log('name', name);
-    console.log('email', email);
-    const user = await prisma.user.create({ data: { name, email } });
+  app.post('/users', async (req, res) => {
+    const prams = req.body;
+    const user = await prisma.user.create({ data: prams });
     res.json(user);
   });
 
   // PUT /user/:id
-  app.put('/user/:id', async (req, res) => {
+  app.put('/users/:id', async (req, res) => {
     const { id } = req.params;
-    const { name, email } = req.body;
+    const prams = req.body;
     const user = await prisma.user.update({
       where: { id: Number(id) },
-      data: { name, email },
+      data: prams,
     });
     res.json(user);
   });
 
   // DELETE /user/:id
-  app.delete('/user/:id', async (req, res) => {
+  app.delete('/users/:id', async (req, res) => {
     const { id } = req.params;
     const user = await prisma.user.delete({ where: { id: Number(id) } });
     res.json(user);

@@ -1,6 +1,8 @@
 import express from 'express';
 import { PrismaClient } from '../generated/prisma/client.js';
 import user from './user.js';
+import item from './item.js';
+import itemImg from './item-img.js';
 
 const prisma = new PrismaClient();
 const app = express();
@@ -15,6 +17,8 @@ app.use((err, req, res, next) => {
 });
 
 user(app, prisma);
+item(app, prisma);
+itemImg(app, prisma);
 
 const PORT = 3100;
 app.listen(PORT, () =>

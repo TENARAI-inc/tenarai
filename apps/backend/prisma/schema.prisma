@@ -20,3 +20,21 @@ model User {
   email String @unique
   createdAt DateTime @default(now()) @map("created_at")
 }
+
+model Item {
+  id    Int    @id @default(autoincrement())
+  itemimg  ItemImg[]
+  name  String
+  price Int
+  description String
+  createdAt DateTime @default(now()) @map("created_at")
+}
+
+model ItemImg {
+  id    Int    @id @default(autoincrement())
+  itemId Int
+  item Item @relation(fields: [itemId], references: [id])
+  url  String
+  createdAt DateTime @default(now()) @map("created_at")
+
+}

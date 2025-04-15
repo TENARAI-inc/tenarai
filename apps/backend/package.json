@@ -8,6 +8,7 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:reset": "prisma migrate reset",
+    "prisma:studio": "prisma studio",
     "dev": "tsx watch src/index.ts",
     "user:add": "curl -X POST http://localhost:3100/user -H \"Content-Type: application/json\" -d '{\"name\": \"John Doe\", \"email\": \"john.doe@example.com\"}'"
   },
