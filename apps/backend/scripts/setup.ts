@@ -4,6 +4,9 @@ const prisma = new PrismaClient({
   log: ['query', 'info', 'warn', 'error'],
 });
 
+/**
+ * Bulk insert script
+ */
 (async () => {
   console.log('Starting bulk insert...');
 
@@ -45,11 +48,11 @@ async function bulkInsertUser() {
  * item
  */
 async function bulkInsertItem() {
-  const items = [
-    { name: 'アイテム1', price: 500, description: 'アイテム1の説明' },
-    { name: 'アイテム2', price: 600, description: 'アイテム2の説明' },
-    { name: 'アイテム3', price: 700, description: 'アイテム3の説明' },
-  ];
+  const items = Array.from({ length: 100 }, (_, i) => ({
+    name: `アイテム${i + 1}`,
+    price: Math.floor(Math.random() * 1000) + 1,
+    description: `アイテム${i + 1}の説明`,
+  }));
 
   try {
     await prisma.item.createMany({
@@ -67,14 +70,21 @@ async function bulkInsertItem() {
  * itemImg
  */
 async function bulkInsertItemImg() {
-  const itemImgs = [
-    { itemId: 1, url: '/imgs/img01.png' },
-    { itemId: 1, url: '/imgs/img02.png' },
-    { itemId: 1, url: '/imgs/img03.png' },
-    { itemId: 2, url: '/imgs/img04.png' },
-    { itemId: 2, url: '/imgs/img05.png' },
-    { itemId: 2, url: '/imgs/img06.png' },
-  ];
+  let colors: string[] = [];
+
+  const itemImgs = Array.from({ length: 100 }, (_, i) => {
+    if (colors.length === 0) {
+      colors = shuffle(['ed5a5a', '5aed5a', '5a5aed', 'ed5aed', 'eded5a']);
+    }
+
+    const color = colors.pop();
+    return {
+      itemId: i + 1,
+      url: `https://fakeimg.pl/640x360/${color}/fff?text=${String(
+        i + 1
+      ).padStart(3, '0')}.png`,
+    };
+  });
 
   try {
     await prisma.itemImg.createMany({
@@ -86,4 +96,8 @@ async function bulkInsertItemImg() {
     return false;
   }
   return true;
+}
+
+function shuffle(colors: string[]) {
+  return colors.sort(() => Math.random() - 0.5);
 }

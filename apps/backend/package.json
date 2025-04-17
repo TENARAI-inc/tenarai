@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "setupdata": "./scripts/setup.sh",
+    "setupdata": "tsx ./scripts/setup.ts",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:reset": "prisma migrate reset",
