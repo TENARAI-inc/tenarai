@@ -1,6 +1,6 @@
 <template>
   <div class="ItemOne">
-    <NuxtLink class="ItemOne__Link" to="/item/001">
+    <NuxtLink class="ItemOne__Link" to="/items/001">
       <img
         class="ItemOne__Img"
         src="https://fakeimg.pl/640x360/cccccc/fff?text=001.png"

@@ -7,11 +7,11 @@
     </NuxtLink>
     <!-- 右側 -->
     <menu ref="menuRef" class="Header__Menu">
-      <li><NuxtLink to="/contact">問い合わせ</NuxtLink></li>
       <li>
-        <NuxtLink to="/booking"> 予約する </NuxtLink>
+        <NuxtLink to="/booking"> カート </NuxtLink>
       </li>
       <li><NuxtLink to="/">ログイン</NuxtLink></li>
+      <li><NuxtLink to="/contact">問い合わせ</NuxtLink></li>
     </menu>
   </header>
 </template>

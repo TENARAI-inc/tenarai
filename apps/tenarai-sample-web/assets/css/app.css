@@ -43,6 +43,9 @@
   --z-header: 90;
   --z-dialog: 100;
   --z-cover-loading: 200;
+
+  --button-width: 160px;
+  --button-height: 40px;
 }
 
 html {
