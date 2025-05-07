@@ -3,24 +3,14 @@
     <div>
       <Logo class="Logo" />
     </div>
-    <div class="Achievements">
-      <p>指導セッション30,000超</p>
-      <p>未経験者からアスリートまで 圧倒的な指導実績</p>
-    </div>
 
     <div class="Info">
       <ul class="Buttons">
         <li>
-          <a class="Button" href="/">セッション予約</a>
-        </li>
-        <li>
-          <a class="Button" href="/">プログラム購入</a>
-        </li>
-        <li>
           <a class="Button" href="/">メール</a>
         </li>
         <li>
-          <a class="Button" href="/">080-4199-3150</a>
+          <a class="Button" href="/">お問い合わせ</a>
         </li>
       </ul>
     </div>
@@ -37,13 +27,6 @@
         </NuxtLink>
       </li>
     </ul>
-    <p class="Open">
-      営業時間
-      <br />
-      &emsp;平日: 10:00〜20:00
-      <br />
-      土日祝: 10:00〜20:00
-    </p>
   </footer>
 </template>
 
@@ -56,10 +39,11 @@
 
   footer {
     position: relative;
-    color: white;
+    color: #666;
     font-size: 16px;
     padding: calc(var(--unit) * 8) calc(var(--unit) * 6);
-    background-color: var(--color-gray);
+    background-color: #eeeeee;
+    background-image: url('/imgs/patterns/dark-tire.png');
   }
   .Logo {
     display: block;
