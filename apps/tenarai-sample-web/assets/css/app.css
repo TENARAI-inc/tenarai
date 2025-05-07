@@ -1,0 +1,129 @@
+@import './_reset.css';
+@import './_vue.css';
+
+:root {
+  --unit: 8px;
+  --header-height: 66px;
+  --shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  --border-radius: 6px;
+  --border-radius-image: 6px;
+  --padding-section: calc(var(--unit) * 6);
+  --color-base: #c9a800;
+  --color-dark: #333;
+  --color-gray: #635750;
+  --color-text: #555;
+  --color-alert: #d55353;
+  --color-input-bg: #fafafa;
+  --fontsize-section-title: 46px;
+
+  --z-header: 90;
+  --z-dialog: 100;
+  --z-cover-loading: 200;
+}
+
+html {
+  background-image: var(--bg-pattern);
+  font-size: 16px;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Hiragino Sans',
+    'Hiragino Kaku Gothic ProN', 'Arial', 'Yu Gothic', 'Meiryo', sans-serif;
+  color: var(--color-text);
+
+  &.-noscroll {
+    overflow: hidden;
+  }
+}
+
+body {
+  &.-home {
+    background-color: #cac1bb;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button[disabled] {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* components */
+
+.Button {
+  background-color: white;
+  color: var(--color-dark);
+  padding: calc(var(--unit) * 1) calc(var(--unit) * 3);
+  border-radius: calc(var(--unit) * 1);
+  border: none;
+  cursor: pointer;
+
+  &.-color {
+    background-color: var(--color-base);
+    color: white;
+  }
+  &.-disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  &.-secondary {
+    border: solid 1px var(--color-base);
+    color: var(--color-base);
+    background-color: white;
+  }
+}
+.Button:hover {
+  opacity: 0.9;
+}
+.Link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.Link:hover {
+  text-decoration: none;
+}
+.Container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: calc(var(--unit) * 4) calc(var(--unit) * 3);
+
+  &.-home {
+    max-width: 1200px;
+  }
+}
+.PageTitle {
+  font-size: 32px;
+  font-weight: bold;
+  padding: calc(var(--unit) * 4) 0 calc(var(--unit) * 8);
+}
+@media (--sp) {
+  .PageTitle {
+    font-size: 26px;
+    padding: calc(var(--unit) * 2) 0 calc(var(--unit) * 3);
+  }
+  .Container {
+    &.-home {
+      max-width: 100%;
+    }
+  }
+}
+
+.ImgContain {
+  display: block;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+/* transitions */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
