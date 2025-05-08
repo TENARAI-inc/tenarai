@@ -16,12 +16,12 @@
 </template>
 
 <script setup lang="ts">
-  import GlobalHeader from '@/components/GlobalHeader.vue';
-  import GlobalFooter from '@/components/GlobalFooter.vue';
-  import ItemDetail from '@/components/home/ItemDetail.vue';
-  import { genereateItemDetail } from '@/mock/items';
+import GlobalHeader from '@/components/GlobalHeader.vue';
+import GlobalFooter from '@/components/GlobalFooter.vue';
+import ItemDetail from '@/components/home/ItemDetail.vue';
+import { genereateItemDetail } from '@/mock/items';
 
-  const item = genereateItemDetail();
+const item = genereateItemDetail();
 </script>
 
 <style scoped lang="css">

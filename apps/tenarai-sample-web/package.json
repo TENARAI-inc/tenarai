@@ -1,13 +1,14 @@
 {
-  "name": "nuxt-app",
+  "name": "tenarai-sample-web",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "pnpm lint && nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@nuxt/image": "1.10.0",

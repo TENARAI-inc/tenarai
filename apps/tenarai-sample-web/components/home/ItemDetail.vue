@@ -30,10 +30,11 @@
   import { useStore } from '@/composables/useStore';
   import { dispPrice } from '@/utils/display';
   import type { Item } from '@/types/app';
+  import type { PropType } from 'vue';
 
   const props = defineProps({
     item: {
-      type: Object as () => Item,
+      type: Object as PropType<Item>,
       required: true,
     },
   });

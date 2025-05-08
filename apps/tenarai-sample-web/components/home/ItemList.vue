@@ -11,10 +11,11 @@
 <script setup lang="ts">
   import ItemOne from '@/components/home/ItemOne.vue';
   import type { Item } from '@/types/app';
+  import type { PropType } from 'vue';
 
-  const props = defineProps({
+  defineProps({
     items: {
-      type: Array as () => Item[],
+      type: Array as PropType<Item[]>,
       required: true,
     },
   });

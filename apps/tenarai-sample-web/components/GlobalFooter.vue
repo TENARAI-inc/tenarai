@@ -7,22 +7,34 @@
     <div class="Info">
       <ul class="Buttons">
         <li>
-          <a class="Button" href="/">メール</a>
+          <a
+            class="Button"
+            href="/"
+          >メール</a>
         </li>
         <li>
-          <a class="Button" href="/">お問い合わせ</a>
+          <a
+            class="Button"
+            href="/"
+          >お問い合わせ</a>
         </li>
       </ul>
     </div>
 
     <ul class="Links">
       <li>
-        <NuxtLink class="Link" to="/privacypolicy">
+        <NuxtLink
+          class="Link"
+          to="/privacypolicy"
+        >
           プライバシーポリシー
         </NuxtLink>
       </li>
       <li>
-        <NuxtLink class="Link" to="/tokushoho">
+        <NuxtLink
+          class="Link"
+          to="/tokushoho"
+        >
           特定商取引法に基づく表記
         </NuxtLink>
       </li>
@@ -31,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-  import Logo from '~/components/Logo.vue';
+import Logo from '~/components/Logo.vue';
 </script>
 
 <style scoped>

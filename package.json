@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "pnpm --filter=tenarai-sample-web lint",
+    "build": "pnpm --filter=tenarai-sample-web build",
+    "generate": "pnpm --filter=tenarai-sample-web generate"
   },
   "keywords": [],
   "author": "",

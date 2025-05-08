@@ -10,7 +10,10 @@
     }"
     @click.stop="$event"
   >
-    <Loading v-if="loading" class="Button__Loading" />
+    <Loading
+      v-if="loading"
+      class="Button__Loading"
+    />
     <template v-else>
       {{ props.label }}
     </template>
@@ -18,30 +21,30 @@
 </template>
 
 <script setup lang="ts">
-  import Loading from '@/components/Loading.vue';
+import Loading from '@/components/Loading.vue';
 
-  const props = defineProps({
-    label: {
-      type: String,
-      default: '',
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    color: {
-      type: Boolean,
-      default: false,
-    },
-    secondary: {
-      type: Boolean,
-      default: false,
-    },
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-  });
+const props = defineProps({
+  label: {
+    type: String,
+    default: '',
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+  color: {
+    type: Boolean,
+    default: false,
+  },
+  secondary: {
+    type: Boolean,
+    default: false,
+  },
+  loading: {
+    type: Boolean,
+    default: false,
+  },
+});
 </script>
 
 <style scoped>

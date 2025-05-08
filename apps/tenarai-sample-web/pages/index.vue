@@ -16,9 +16,9 @@
       <p>お知らせが入ります。</p>
       <p>
         お知らせが入ります。お知らせが入ります。お知らせが入ります。
-        <br />
+        <br>
         お知らせが入ります。お知らせが入ります。
-        <br />
+        <br>
         お知らせが入ります。お知らせが入ります。
       </p>
     </section>
@@ -27,12 +27,12 @@
 </template>
 
 <script setup lang="ts">
-  import GlobalHeader from '@/components/GlobalHeader.vue';
-  import GlobalFooter from '@/components/GlobalFooter.vue';
-  import ItemList from '@/components/home/ItemList.vue';
-  import { genereateItems } from '@/mock/items';
+import GlobalHeader from '@/components/GlobalHeader.vue';
+import GlobalFooter from '@/components/GlobalFooter.vue';
+import ItemList from '@/components/home/ItemList.vue';
+import { genereateItems } from '@/mock/items';
 
-  const items = genereateItems();
+const items = genereateItems();
 </script>
 
 <style scoped lang="css">

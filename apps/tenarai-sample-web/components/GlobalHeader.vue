@@ -1,13 +1,21 @@
 <template>
   <header class="Header">
     <!-- 左側 -->
-    <NuxtLink class="Header__Logo" to="/">
+    <NuxtLink
+      class="Header__Logo"
+      to="/"
+    >
       <Logo />
       <span>Tenarai Sample Web</span>
     </NuxtLink>
     <!-- 右側 -->
-    <menu ref="menuRef" class="Header__Menu">
-      <li class="Header__MenuLogin"><NuxtLink to="/">ログイン</NuxtLink></li>
+    <menu
+      ref="menuRef"
+      class="Header__Menu"
+    >
+      <li class="Header__MenuLogin">
+        <NuxtLink to="/">ログイン</NuxtLink>
+      </li>
       <li class="Header__MenuCart">
         <NuxtLink to="/booking">
           <IconCart />
@@ -23,10 +31,11 @@
 </template>
 
 <script setup lang="ts">
-  import Logo from '~/components/Logo.vue';
-  import IconCart from '~/components/icons/IconCart.vue';
-  import { useStore } from '@/composables/useStore';
-  const store = useStore();
+import Logo from '~/components/Logo.vue';
+import IconCart from '~/components/icons/IconCart.vue';
+import { useStore } from '@/composables/useStore';
+
+const store = useStore();
 </script>
 
 <style scoped>
