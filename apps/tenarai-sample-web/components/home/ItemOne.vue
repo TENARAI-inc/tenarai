@@ -1,18 +1,25 @@
 <template>
   <div class="ItemOne">
-    <NuxtLink class="ItemOne__Link" to="/item/001">
-      <img
-        class="ItemOne__Img"
-        src="https://fakeimg.pl/640x360/cccccc/fff?text=001.png"
-        alt=""
-      />
+    <NuxtLink class="ItemOne__Link" to="/items/001">
+      <img class="ItemOne__Img" :src="item.itemimgs[0].url" alt="" />
     </NuxtLink>
     <div class="ItemOne__text">
-      <h2>タイトル</h2>
-      <p>説明文が入ります。説明文が入ります。説明文が入ります。</p>
+      <h2>{{ item.name }}</h2>
+      <p>{{ item.description }}</p>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+  import type { Item } from '@/types/app';
+
+  const props = defineProps({
+    item: {
+      type: Object as () => Item,
+      required: true,
+    },
+  });
+</script>
 
 <style scoped>
   @import '~/assets/css/_vue.css';
@@ -35,6 +42,7 @@
     width: var(--item-one-width);
     height: var(--item-one-height);
     overflow: hidden;
+    border-radius: var(--border-radius);
     margin-bottom: var(--space-16);
   }
   .ItemOne__Img {

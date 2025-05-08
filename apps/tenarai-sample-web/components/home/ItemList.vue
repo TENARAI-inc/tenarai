@@ -1,8 +1,8 @@
 <template>
   <article class="ItemList">
     <ul class="ItemList__List">
-      <li v-for="(item, index) in 10" :key="`itemone-${index}`">
-        <ItemOne class="ItemList__ItemOne" />
+      <li v-for="(item, index) in items" :key="`itemone-${index}`">
+        <ItemOne class="ItemList__ItemOne" :item="item" />
       </li>
     </ul>
   </article>
@@ -10,6 +10,14 @@
 
 <script setup lang="ts">
   import ItemOne from '@/components/home/ItemOne.vue';
+  import type { Item } from '@/types/app';
+
+  const props = defineProps({
+    items: {
+      type: Array as () => Item[],
+      required: true,
+    },
+  });
 </script>
 
 <style scoped>

@@ -2,26 +2,15 @@
   <main>
     <GlobalHeader />
     <!-- SectionHead -->
-    <section class="SectionHead">
+    <!-- <section class="SectionHead">
       <h1>Tenarai Sample Web</h1>
       <p>Welcome to the Tenarai Sample Web!</p>
-    </section>
+    </section> -->
     <!-- SectionList -->
-    <section class="SectionList">
-      <ItemList :items="items" />
+    <section class="SectionItemDetail">
+      <ItemDetail :item="item" />
     </section>
-    <!-- SectionInfo -->
-    <section class="SectionInfo">
-      <h2>お知らせ</h2>
-      <p>お知らせが入ります。</p>
-      <p>
-        お知らせが入ります。お知らせが入ります。お知らせが入ります。
-        <br />
-        お知らせが入ります。お知らせが入ります。
-        <br />
-        お知らせが入ります。お知らせが入ります。
-      </p>
-    </section>
+
     <GlobalFooter />
   </main>
 </template>
@@ -29,10 +18,10 @@
 <script setup lang="ts">
   import GlobalHeader from '@/components/GlobalHeader.vue';
   import GlobalFooter from '@/components/GlobalFooter.vue';
-  import ItemList from '@/components/home/ItemList.vue';
-  import { genereateItems } from '@/mock/items';
+  import ItemDetail from '@/components/home/ItemDetail.vue';
+  import { genereateItemDetail } from '@/mock/items';
 
-  const items = genereateItems();
+  const item = genereateItemDetail();
 </script>
 
 <style scoped lang="css">
@@ -48,8 +37,8 @@
       margin-bottom: var(--space-16);
     }
   }
-  .SectionList {
-    padding: 0 0 var(--space-64);
+  .SectionItemDetail {
+    padding: var(--space-64) 0 var(--space-64);
   }
   .SectionInfo {
     text-align: center;
