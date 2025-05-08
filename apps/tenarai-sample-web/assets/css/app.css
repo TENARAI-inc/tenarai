@@ -26,18 +26,20 @@
   --font-size-12: calc(var(--unit) * 1.5);
   --font-size-10: calc(var(--unit) * 1.25);
 
-  --header-height: 66px;
-  --shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
-  --border-radius: 6px;
-  --border-radius-image: 6px;
-  --padding-section: calc(var(--unit) * 6);
-  --color-base: #c9a800;
+  --color-base: #00c9b5;
   --color-dark: #333;
   --color-gray: #635750;
   --color-text: #555;
   --color-alert: #d55353;
   --color-footer: ##eee;
   --color-input-bg: #fafafa;
+
+  --header-height: 66px;
+  --shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  --border-radius: 6px;
+  --border-radius-image: 6px;
+  --padding-section: calc(var(--unit) * 6);
+
   --fontsize-section-title: 46px;
 
   --z-header: 90;

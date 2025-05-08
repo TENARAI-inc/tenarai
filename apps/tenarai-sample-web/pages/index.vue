@@ -8,7 +8,7 @@
     </section>
     <!-- SectionList -->
     <section class="SectionList">
-      <ItemList />
+      <ItemList :items="items" />
     </section>
     <!-- SectionInfo -->
     <section class="SectionInfo">
@@ -30,6 +30,9 @@
   import GlobalHeader from '@/components/GlobalHeader.vue';
   import GlobalFooter from '@/components/GlobalFooter.vue';
   import ItemList from '@/components/home/ItemList.vue';
+  import { genereateItems } from '@/mock/items';
+
+  const items = genereateItems();
 </script>
 
 <style scoped lang="css">

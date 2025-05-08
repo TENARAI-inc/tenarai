@@ -7,17 +7,26 @@
     </NuxtLink>
     <!-- 右側 -->
     <menu ref="menuRef" class="Header__Menu">
-      <li>
-        <NuxtLink to="/booking"> カート </NuxtLink>
+      <li class="Header__MenuLogin"><NuxtLink to="/">ログイン</NuxtLink></li>
+      <li class="Header__MenuCart">
+        <NuxtLink to="/booking">
+          <IconCart />
+          カート
+          <span>{{ store.count }}</span>
+        </NuxtLink>
       </li>
-      <li><NuxtLink to="/">ログイン</NuxtLink></li>
-      <li><NuxtLink to="/contact">問い合わせ</NuxtLink></li>
+      <li class="Header__MenuInquiry">
+        <NuxtLink to="/contact">問い合わせ</NuxtLink>
+      </li>
     </menu>
   </header>
 </template>
 
 <script setup lang="ts">
   import Logo from '~/components/Logo.vue';
+  import IconCart from '~/components/icons/IconCart.vue';
+  import { useStore } from '@/composables/useStore';
+  const store = useStore();
 </script>
 
 <style scoped>
@@ -36,7 +45,6 @@
     background-color: #fff;
     box-shadow: var(--shadow);
   }
-
   .Header__Logo {
     display: flex;
     align-items: center;
@@ -50,13 +58,36 @@
       max-width: 40px;
     }
   }
-
   .Header__Menu {
     display: flex;
     margin: 0 0 0 auto;
-  }
 
-  .Header__Menu li + li {
-    margin-left: calc(var(--unit) * 3);
+    a {
+      vertical-align: middle;
+    }
+
+    svg {
+      vertical-align: -5px;
+    }
+
+    li + li {
+      margin-left: calc(var(--unit) * 3);
+    }
+  }
+  .Header__MenuCart {
+    --circle-size: 24px;
+
+    span {
+      display: inline-block;
+      width: var(--circle-size);
+      height: var(--circle-size);
+      background-color: var(--color-base);
+      color: white;
+      text-align: center;
+      border-radius: 50%;
+      font-size: 12px;
+      vertical-align: 2px;
+      line-height: 1.8;
+    }
   }
 </style>

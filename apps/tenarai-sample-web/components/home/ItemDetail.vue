@@ -6,20 +6,20 @@
       </li>
       <li>/</li>
       <li>
-        <NuxtLink class="Link -disabled" to="">アイテム名</NuxtLink>
+        <NuxtLink class="Link -disabled" to="">{{ item.name }}</NuxtLink>
       </li>
     </ul>
     <div class="ItemDetail__Body">
       <div class="ItemDetail__Image">
-        <img src="https://fakeimg.pl/640x360/cccccc/fff?text=001.png" alt="" />
+        <img :src="item.itemimgs[0].url" alt="" />
       </div>
       <div class="ItemDetail__Info">
-        <h1 class="ItemDetail__ItemTitle">アイテム詳細</h1>
-        <p class="ItemDetail__ItemPrice">4500円</p>
+        <h1 class="ItemDetail__ItemTitle">{{ item.name }}</h1>
+        <p class="ItemDetail__ItemPrice">{{ price }}</p>
         <p class="ItemDetail__ItemDes">
           説明文が入ります。説明文が入ります。説明文が入ります。
         </p>
-        <Button label="カートに追加" />
+        <Button label="カートに追加" @click="countUp" />
       </div>
     </div>
   </article>
@@ -27,6 +27,23 @@
 
 <script setup lang="ts">
   import Button from '@/components/Button.vue';
+  import { useStore } from '@/composables/useStore';
+  import { dispPrice } from '@/utils/display';
+  import type { Item } from '@/types/app';
+
+  const props = defineProps({
+    item: {
+      type: Object as () => Item,
+      required: true,
+    },
+  });
+
+  const store = useStore();
+  const price = dispPrice(props.item.price);
+
+  const countUp = () => {
+    store.increment();
+  };
 </script>
 
 <style scoped>
@@ -45,6 +62,8 @@
   }
   .ItemDetail__Image {
     img {
+      width: 100%;
+      max-width: 500px;
       border-radius: var(--border-radius);
     }
   }
@@ -64,6 +83,6 @@
   }
   .ItemDetail__ItemDes {
     font-size: var(--font-size-18);
-    margin-bottom: var(--space-16);
+    margin: var(--space-32) 0;
   }
 </style>

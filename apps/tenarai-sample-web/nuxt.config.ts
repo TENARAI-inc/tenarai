@@ -2,7 +2,12 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-07',
   devtools: { enabled: true },
-  modules: ['@nuxt/image', '@nuxt/eslint'],
+  modules: [
+    '@nuxt/image',
+    '@nuxt/eslint',
+    '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
+  ],
   css: ['~/assets/css/app.css'],
   build: {
     transpile: ['@vee-validate/rules'],
@@ -19,5 +24,9 @@ export default defineNuxtConfig({
         semi: true,
       },
     },
+  },
+  piniaPluginPersistedstate: {
+    storage: 'localStorage',
+    debug: true,
   },
 });
