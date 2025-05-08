@@ -106,10 +106,17 @@ button[disabled] {
 .Link {
   text-decoration: underline;
   cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+  &.-disabled {
+    pointer-events: none;
+    text-decoration: none;
+    opacity: 0.6;
+  }
 }
-.Link:hover {
-  text-decoration: none;
-}
+
 .Container {
   max-width: 800px;
   margin: 0 auto;

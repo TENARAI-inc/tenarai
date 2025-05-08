@@ -58,7 +58,7 @@
     height: var(--button-height);
     color: var(--color-dark);
     padding: var(--space-8) var(--space-16);
-    border-radius: calc(var(--unit) * 1);
+    border-radius: var(--border-radius);
     border: none;
     cursor: pointer;
     line-height: 1;

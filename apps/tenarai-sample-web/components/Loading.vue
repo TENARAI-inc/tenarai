@@ -6,7 +6,7 @@
   .loader {
     --border-width: 2px;
     --color1: transparent;
-    --color2: #f3f3f3;
+    --color2: #666;
 
     border: var(--border-width) solid var(--color2);
     border-radius: 50%;
