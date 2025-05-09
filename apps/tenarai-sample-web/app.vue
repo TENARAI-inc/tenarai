@@ -8,7 +8,7 @@
 const og = {
   title: 'Tenarai Sample Web',
   description:
-      'Tenarai Sample Webは、TenaraiのサンプルWebサイトです。Nuxt3を使用して作成されています。',
+    'Tenarai Sample Webは、TenaraiのサンプルWebサイトです。Nuxt3を使用して作成されています。',
   image: 'https://sc-aegis.netlify.app/imgs/og/main.png',
   imageWidth: '2500',
   imageHeight: '1330',

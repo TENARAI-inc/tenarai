@@ -1,37 +1,28 @@
 <template>
-  <article class="ItemList">
-    <ul class="ItemList__List">
-      <li v-for="(item, index) in items" :key="`itemone-${index}`">
-        <ItemOne class="ItemList__ItemOne" :item="item" />
-      </li>
-    </ul>
-  </article>
+  <article class="ItemList">あいう</article>
 </template>
 
 <script setup lang="ts">
-  import ItemOne from '@/components/home/ItemOne.vue';
-  import type { Item } from '@/types/app';
-  import type { PropType } from 'vue';
-
-  defineProps({
-    items: {
-      type: Array as PropType<Item[]>,
-      required: true,
-    },
-  });
+defineProps({
+  items: {
+    type: Object,
+    required: true,
+  },
+});
 </script>
 
 <style scoped>
-  @import '~/assets/css/_vue.css';
+@import '~/assets/css/_vue.css';
 
-  .ItemList__List {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-  }
-  .ItemList__ItemOne {
-    margin: var(--space-16);
-  }
+.ItemList__List {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.ItemList__ItemOne {
+  margin: var(--space-16);
+}
 </style>

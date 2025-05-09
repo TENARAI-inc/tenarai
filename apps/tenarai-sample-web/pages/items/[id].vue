@@ -25,36 +25,36 @@ const item = genereateItemDetail();
 </script>
 
 <style scoped lang="css">
-  @import '~/assets/css/_vue.css';
+@import '~/assets/css/_vue.css';
 
-  .SectionHead {
-    text-align: center;
-    padding: var(--space-64) 0;
+.SectionHead {
+  text-align: center;
+  padding: var(--space-64) 0;
+  font-size: var(--font-size-18);
+
+  h1 {
+    font-size: var(--font-size-32);
+    margin-bottom: var(--space-16);
+  }
+}
+.SectionItemDetail {
+  padding: var(--space-64) 0 var(--space-64);
+}
+.SectionInfo {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: var(--space-64) var(--space-32);
+  height: 600px;
+
+  h2 {
+    font-size: var(--font-size-32);
+    margin-bottom: var(--space-32);
+  }
+
+  p {
     font-size: var(--font-size-18);
-
-    h1 {
-      font-size: var(--font-size-32);
-      margin-bottom: var(--space-16);
-    }
+    margin-bottom: var(--space-16);
   }
-  .SectionItemDetail {
-    padding: var(--space-64) 0 var(--space-64);
-  }
-  .SectionInfo {
-    text-align: center;
-    background-color: #333;
-    color: white;
-    padding: var(--space-64) var(--space-32);
-    height: 600px;
-
-    h2 {
-      font-size: var(--font-size-32);
-      margin-bottom: var(--space-32);
-    }
-
-    p {
-      font-size: var(--font-size-18);
-      margin-bottom: var(--space-16);
-    }
-  }
+}
 </style>
