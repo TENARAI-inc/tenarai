@@ -3,9 +3,11 @@
 </template>
 
 <script setup lang="ts">
+import type { Item } from '@/types/app';
+
 defineProps({
   items: {
-    type: Object,
+    type: Array as PropType<Item[]>,
     required: true,
   },
 });
