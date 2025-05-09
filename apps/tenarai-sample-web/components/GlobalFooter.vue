@@ -17,14 +17,10 @@
 
     <ul class="Links">
       <li>
-        <NuxtLink class="Link" to="/privacypolicy">
-          プライバシーポリシー
-        </NuxtLink>
+        <NuxtLink class="Link" to="/">プライバシーポリシー</NuxtLink>
       </li>
       <li>
-        <NuxtLink class="Link" to="/tokushoho">
-          特定商取引法に基づく表記
-        </NuxtLink>
+        <NuxtLink class="Link" to="/">特定商取引法に基づく表記</NuxtLink>
       </li>
     </ul>
   </footer>

@@ -11,14 +11,14 @@
         <NuxtLink to="/">ログイン</NuxtLink>
       </li>
       <li class="Header__MenuCart">
-        <NuxtLink to="/booking">
+        <NuxtLink to="/">
           <IconCart />
           カート
           <span>{{ store.count }}</span>
         </NuxtLink>
       </li>
       <li class="Header__MenuInquiry">
-        <NuxtLink to="/contact">問い合わせ</NuxtLink>
+        <NuxtLink to="/">問い合わせ</NuxtLink>
       </li>
     </menu>
   </header>
