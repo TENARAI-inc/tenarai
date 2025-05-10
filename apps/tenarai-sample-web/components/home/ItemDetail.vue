@@ -19,19 +19,19 @@
         <p class="ItemDetail__ItemDes">
           説明文が入ります。説明文が入ります。説明文が入ります。
         </p>
-        <Button label="カートに追加" color @click="add" />
+        <Button label="カートに追加" color @click="emit('addItem', item)" />
       </div>
     </div>
   </article>
 </template>
 
 <script setup lang="ts">
+import type { PropType } from 'vue';
 import Button from '@/components/Button.vue';
-import { useStore } from '@/composables/useStore';
 import { dispPrice } from '@/utils/display';
 import type { Item } from '@/types/app';
-import type { PropType } from 'vue';
 
+const emit = defineEmits(['addItem']);
 const props = defineProps({
   item: {
     type: Object as PropType<Item>,
@@ -39,16 +39,11 @@ const props = defineProps({
   },
 });
 
-const store = useStore();
 const price = dispPrice(props.item.price);
-
-const add = () => {
-  store.addCart(props.item);
-};
 </script>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .ItemDetail {
   width: 80%;

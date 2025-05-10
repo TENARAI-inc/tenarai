@@ -50,6 +50,7 @@
         <p></p>
         <h2>保有ポイント</h2>
         <p class="Mypage__Point">44444 ポイント</p>
+        <p>cart {{ cart.visibleCart }}</p>
       </div>
     </section>
     <GlobalFooter />
@@ -57,16 +58,18 @@
 </template>
 
 <script setup lang="ts">
-import GlobalHeader from '@/components/GlobalHeader.vue';
-import GlobalFooter from '@/components/GlobalFooter.vue';
+import GlobalHeader from '@/containers/GlobalHeader.vue';
+import GlobalFooter from '@/containers/GlobalFooter.vue';
 import IconArrow from '@/components/icons/IconArrow.vue';
 import { useStore } from '@/composables/useStore';
+import { useCart } from '@/composables/useCart';
 
 const store = useStore();
+const cart = useCart();
 </script>
 
 <style scoped lang="css">
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .Mypage__Body {
   text-align: center;

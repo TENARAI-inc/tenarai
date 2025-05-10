@@ -70,5 +70,5 @@ defineExpose({
 </script>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 </style>
