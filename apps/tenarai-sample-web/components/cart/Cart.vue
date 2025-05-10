@@ -57,7 +57,7 @@ const close = () => {
 };
 const onClickBG = (e: Event) => {
   const target = e.target as HTMLElement | null;
-  if (target?.hasAttribute('open')) {
+  if (target?.classList.contains('Cart')) {
     close();
   }
 };

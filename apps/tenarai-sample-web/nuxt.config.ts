@@ -32,4 +32,14 @@ export default defineNuxtConfig({
     storage: 'localStorage',
     debug: true,
   },
+  vite: {
+    server: {
+      proxy: {
+        '/api': {
+          target: process.env.PROXY_API_URL,
+          secure: false,
+        },
+      },
+    },
+  },
 });

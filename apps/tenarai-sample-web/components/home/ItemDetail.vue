@@ -11,7 +11,7 @@
     </ul>
     <div class="ItemDetail__Body">
       <div class="ItemDetail__Image">
-        <img :src="item.itemimgs[0].url" alt="" />
+        <img :src="imgUrl" :alt="item.name" />
       </div>
       <div class="ItemDetail__Info">
         <h1 class="ItemDetail__ItemTitle">{{ item.name }}</h1>
@@ -22,6 +22,7 @@
         <Button label="カートに追加" color @click="emit('addItem', item)" />
       </div>
     </div>
+    {{ item }}
   </article>
 </template>
 
@@ -37,6 +38,13 @@ const props = defineProps({
     type: Object as PropType<Item>,
     required: true,
   },
+});
+
+const imgUrl = computed(() => {
+  if (!props.item.itemimg || props.item.itemimg.length === 0) {
+    return '';
+  }
+  return props.item.itemimg[0].url;
 });
 
 const price = dispPrice(props.item.price);

@@ -8,7 +8,7 @@
     </section>
     <!-- SectionList -->
     <section class="SectionList">
-      <ItemList :items="items" />
+      <ItemList :items="uitem.items" />
     </section>
     <!-- SectionInfo -->
     <section class="SectionInfo">
@@ -31,15 +31,12 @@
 import GlobalHeader from '@/containers/GlobalHeader.vue';
 import GlobalFooter from '@/containers/GlobalFooter.vue';
 import ItemList from '@/components/home/ItemList.vue';
-import { genereateItems } from '@/mock/items';
+import { useItem } from '@/composables/useItem';
 
-const items = genereateItems();
-const openDialog = ref(false);
+const uitem = useItem();
 
-onMounted(() => {
-  setTimeout(() => {
-    openDialog.value = true;
-  }, 0);
+onMounted(async () => {
+  await uitem.fetchItems();
 });
 </script>
 

@@ -3,12 +3,12 @@ import { PrismaClient } from '../generated/prisma/client.js';
 
 export default function ItemImg(app: Express, prisma: PrismaClient) {
   // GET
-  app.get('/itemimgs', async (req, res) => {
+  app.get('/api/itemimgs', async (req, res) => {
     const itemImgs = await prisma.itemImg.findMany();
     res.json(itemImgs);
   });
 
-  app.get('/itemimgs/:id', async (req, res) => {
+  app.get('/api/itemimgs/:id', async (req, res) => {
     const { id } = req.params;
     const itemImg = await prisma.itemImg.findUnique({
       where: { id: Number(id) },
@@ -17,7 +17,7 @@ export default function ItemImg(app: Express, prisma: PrismaClient) {
   });
 
   // POST
-  app.post('/itemimgs', async (req, res) => {
+  app.post('/api/itemimgs', async (req, res) => {
     const params = req.body;
 
     const itemImg = await prisma.itemImg.create({ data: params });
@@ -25,7 +25,7 @@ export default function ItemImg(app: Express, prisma: PrismaClient) {
   });
 
   // PUT
-  app.put('/itemimgs/:id', async (req, res) => {
+  app.put('/api/itemimgs/:id', async (req, res) => {
     const { id } = req.params;
     const prams = req.body;
     const itemImg = await prisma.itemImg.update({
@@ -36,7 +36,7 @@ export default function ItemImg(app: Express, prisma: PrismaClient) {
   });
 
   // DELETE
-  app.delete('/itemimgs/:id', async (req, res) => {
+  app.delete('/api/itemimgs/:id', async (req, res) => {
     const { id } = req.params;
     const itemImg = await prisma.itemImg.delete({ where: { id: Number(id) } });
     res.json(itemImg);

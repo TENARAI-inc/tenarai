@@ -1,7 +1,7 @@
 <template>
   <div class="ItemOne">
-    <NuxtLink class="ItemOne__Link" to="/items/001">
-      <img class="ItemOne__Img" :src="item.itemimgs[0].url" alt="" />
+    <NuxtLink class="ItemOne__Link" :to="`/items/${item.id}`">
+      <img class="ItemOne__Img" :src="imgUrl" :alt="item.name" />
     </NuxtLink>
     <div class="ItemOne__Text">
       <h2>{{ item.name }}</h2>
@@ -14,11 +14,17 @@
 import type { Item } from '@/types/app';
 import type { PropType } from 'vue';
 
-defineProps({
+const props = defineProps({
   item: {
     type: Object as PropType<Item>,
     required: true,
   },
+});
+const imgUrl = computed(() => {
+  if (!props.item.itemimg || props.item.itemimg.length === 0) {
+    return '';
+  }
+  return props.item.itemimg[0].url;
 });
 </script>
 
