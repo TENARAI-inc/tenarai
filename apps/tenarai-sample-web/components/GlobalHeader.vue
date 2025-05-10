@@ -7,35 +7,76 @@
     </NuxtLink>
     <!-- 右側 -->
     <menu ref="menuRef" class="Header__Menu">
-      <li class="Header__MenuLogin">
-        <NuxtLink to="/">ログイン</NuxtLink>
-      </li>
-      <li class="Header__MenuCart">
+      <li v-if="store.isLogined" class="Header__MenuCart">
         <NuxtLink to="/">
           <IconCart />
           カート
-          <span>{{ store.count }}</span>
+          <span class="ColorCircle">{{ store.cartItems.length }}</span>
         </NuxtLink>
       </li>
-      <li class="Header__MenuInquiry">
-        <NuxtLink to="/">問い合わせ</NuxtLink>
+      <li v-if="store.isLogined" class="Header__MenuUser">
+        <NuxtLink to="/mypage">
+          {{ store.loginUser?.name }}
+          <IconEnvelope />
+          <span class="ColorCircle">
+            {{ store.notification.count }}
+          </span>
+        </NuxtLink>
+      </li>
+      <li v-if="store.isLogined" class="Header__MenuLogin">
+        <a @click.stop.prevent="openLogout = true">ログアウト</a>
+      </li>
+      <li v-else class="Header__MenuLogin">
+        <a @click.stop.prevent="openLogin = true">ログイン</a>
       </li>
     </menu>
+    <!-- ログインダイアログ -->
+    <DialogLogin
+      :open="openLogin"
+      @close="openLogin = false"
+      @login="(flg) => store.setLogin(flg)"
+    />
+    <!-- ログアウトダイアログ -->
+    <DialogConfirm
+      title="ログアウト"
+      :open="openLogout"
+      @close="openLogout = false"
+    >
+      <template #default="{ close }">
+        <div class="DialogConfirm__Body">
+          <p>ログアウトしますか？</p>
+          <div class="DialogConfirm__Bottom">
+            <Button label="キャンセル" @click.prevent.stop="close" />
+            <Button label="ログアウト" color @click.prevent.stop="logout" />
+          </div>
+        </div>
+      </template>
+    </DialogConfirm>
   </header>
 </template>
 
 <script setup lang="ts">
 import Logo from '~/components/Logo.vue';
 import IconCart from '~/components/icons/IconCart.vue';
+import IconEnvelope from '~/components/icons/IconEnvelope.vue';
+import DialogLogin from '~/components/DialogLogin.vue';
 import { useStore } from '@/composables/useStore';
 
 const store = useStore();
+const openLogin = ref(false);
+const openLogout = ref(false);
+const logout = () => {
+  store.setLogin(false);
+  openLogout.value = false;
+};
 </script>
 
 <style scoped>
 @import '~/assets/css/_vue.css';
 
 .Header {
+  --circle-size: 24px;
+
   position: relative;
   display: flex;
   align-items: center;
@@ -67,6 +108,10 @@ const store = useStore();
 
   a {
     vertical-align: middle;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   svg {
@@ -77,20 +122,27 @@ const store = useStore();
     margin-left: calc(var(--unit) * 3);
   }
 }
-.Header__MenuCart {
-  --circle-size: 24px;
-
-  span {
-    display: inline-block;
-    width: var(--circle-size);
-    height: var(--circle-size);
-    background-color: var(--color-base);
-    color: white;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 12px;
-    vertical-align: 2px;
-    line-height: 1.8;
+.Header__MenuUser {
+  vertical-align: middle;
+}
+.DialogConfirm__Bottom {
+  margin-top: var(--space-32);
+  button + button {
+    margin-left: var(--space-32);
   }
+}
+.ColorCircle {
+  display: inline-block;
+  background-color: var(--color-action);
+  color: white;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  padding: var(--space-4);
+  margin-left: var(--space-4);
+  vertical-align: 2px;
+  line-height: 1.4;
 }
 </style>

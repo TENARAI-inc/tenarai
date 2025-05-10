@@ -3,7 +3,7 @@
     <NuxtLink class="ItemOne__Link" to="/items/001">
       <img class="ItemOne__Img" :src="item.itemimgs[0].url" alt="" />
     </NuxtLink>
-    <div class="ItemOne__text">
+    <div class="ItemOne__Text">
       <h2>{{ item.name }}</h2>
       <p>{{ item.description }}</p>
     </div>
@@ -54,7 +54,12 @@ defineProps({
 
   transition: all 0.2s ease;
 }
-.ItemOne__text {
+.ItemOne__Text {
   font-size: var(--font-size-16);
+
+  h2 {
+    font-size: var(--font-size-18);
+    margin-bottom: var(--space-8);
+  }
 }
 </style>

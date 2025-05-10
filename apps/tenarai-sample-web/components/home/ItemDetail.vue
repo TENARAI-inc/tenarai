@@ -19,7 +19,7 @@
         <p class="ItemDetail__ItemDes">
           説明文が入ります。説明文が入ります。説明文が入ります。
         </p>
-        <Button label="カートに追加" @click="countUp" />
+        <Button label="カートに追加" color @click="add" />
       </div>
     </div>
   </article>
@@ -42,8 +42,8 @@ const props = defineProps({
 const store = useStore();
 const price = dispPrice(props.item.price);
 
-const countUp = () => {
-  store.increment();
+const add = () => {
+  store.addCart(props.item);
 };
 </script>
 
