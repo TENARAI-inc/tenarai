@@ -4,23 +4,14 @@
       <Logo class="Logo" />
     </div>
 
-    <div class="Info">
-      <ul class="Buttons">
-        <li>
-          <a class="Button" href="/">メール</a>
-        </li>
-        <li>
-          <a class="Button" href="/">お問い合わせ</a>
-        </li>
-      </ul>
-    </div>
-
     <ul class="Links">
       <li>
-        <NuxtLink class="Link" to="/">プライバシーポリシー</NuxtLink>
+        <NuxtLink class="Link" to="/privacypolicy">
+          プライバシーポリシー
+        </NuxtLink>
       </li>
       <li>
-        <NuxtLink class="Link" to="/">特定商取引法に基づく表記</NuxtLink>
+        <NuxtLink class="Link" to="/toiawase">お問い合わせ</NuxtLink>
       </li>
     </ul>
   </footer>

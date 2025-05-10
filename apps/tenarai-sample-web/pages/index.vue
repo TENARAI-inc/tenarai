@@ -22,6 +22,7 @@
         お知らせが入ります。お知らせが入ります。
       </p>
     </section>
+
     <GlobalFooter />
   </main>
 </template>
@@ -30,9 +31,17 @@
 import GlobalHeader from '@/components/GlobalHeader.vue';
 import GlobalFooter from '@/components/GlobalFooter.vue';
 import ItemList from '@/components/home/ItemList.vue';
+
 import { genereateItems } from '@/mock/items';
 
 const items = genereateItems();
+const openDialog = ref(false);
+
+onMounted(() => {
+  setTimeout(() => {
+    openDialog.value = true;
+  }, 0);
+});
 </script>
 
 <style scoped lang="css">

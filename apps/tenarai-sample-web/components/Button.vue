@@ -50,22 +50,22 @@ const props = defineProps({
 .Button {
   --loading-size: 20px;
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #ddd;
   width: var(--button-width);
   height: var(--button-height);
   color: var(--color-dark);
+  background-color: white;
   padding: var(--space-8) var(--space-16);
   border-radius: var(--border-radius);
-  border: none;
+  border: solid 1px var(--color-gray);
   cursor: pointer;
   line-height: 1;
 
   &.-color {
-    background-color: var(--color-base);
-    color: white;
+    color: var(--color-action);
+    border: solid 1px var(--color-action);
   }
   &.-disabled {
     opacity: 0.3;

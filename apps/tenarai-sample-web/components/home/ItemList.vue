@@ -1,9 +1,17 @@
 <template>
-  <article class="ItemList">あいう</article>
+  <article class="ItemList">
+    <ul class="ItemList__List">
+      <li v-for="(item, index) in items" :key="`itemone-${index}`">
+        <ItemOne class="ItemList__ItemOne" :item="item" />
+      </li>
+    </ul>
+  </article>
 </template>
 
 <script setup lang="ts">
+import ItemOne from '@/components/home/ItemOne.vue';
 import type { Item } from '@/types/app';
+import type { PropType } from 'vue';
 
 defineProps({
   items: {
@@ -23,7 +31,6 @@ defineProps({
   margin: 0;
   padding: 0;
 }
-
 .ItemList__ItemOne {
   margin: var(--space-16);
 }

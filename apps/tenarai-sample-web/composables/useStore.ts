@@ -1,17 +1,54 @@
 import { defineStore } from 'pinia';
+import type { Item } from '@/types/app';
 
-// You can name the return value of `defineStore()` anything you want,
-// but it's best to use the name of the store and surround it with `use`
-// and `Store` (e.g. `useUserStore`, `useCartStore`, `useProductStore`)
-// the first argument is a unique id of the store across your application
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  iconUrl: string;
+};
+
+const dummuyUser: User = {
+  id: '999',
+  name: 'ジョン・ドゥ',
+  email: 'jon.doh@sample.com',
+  iconUrl: '/imgs/chara_hanage.svg',
+};
+
 export const useStore = defineStore(
   'appstore',
   () => {
-    const count = ref(0);
-    function increment() {
-      count.value += 1;
-    }
-    return { count, increment };
+    /**
+     * login user
+     */
+    const loginUser = ref<User | null>(null);
+    const isLogined = computed(() => {
+      return loginUser.value !== null;
+    });
+    const setLogin = (flg: boolean) => {
+      if (flg) {
+        loginUser.value = { ...dummuyUser };
+      } else {
+        loginUser.value = null;
+      }
+    };
+
+    /**
+     * cart
+     */
+    const cartItems = ref<Item[]>([]);
+    const addCart = (item: Item) => {
+      cartItems.value.push(item);
+    };
+
+    /**
+     * notification
+     */
+    const notification = ref({
+      count: 5,
+    });
+
+    return { loginUser, isLogined, setLogin, cartItems, addCart, notification };
   },
   {
     persist: true,

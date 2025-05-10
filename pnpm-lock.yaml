@@ -34,6 +34,12 @@ importers:
       '@pinia/nuxt':
         specifier: 0.11.0
         version: 0.11.0(pinia@3.0.2)
+      '@vee-validate/i18n':
+        specifier: ^4.15.0
+        version: 4.15.0
+      '@vee-validate/rules':
+        specifier: ^4.15.0
+        version: 4.15.0(vue@3.5.13)
       nuxt:
         specifier: ^3.16.2
         version: 3.16.2(eslint@9.25.0)(typescript@5.8.3)(vite@6.3.1)
@@ -43,6 +49,9 @@ importers:
       pinia-plugin-persistedstate:
         specifier: ^4.2.0
         version: 4.2.0(@pinia/nuxt@0.11.0)(pinia@3.0.2)
+      vee-validate:
+        specifier: ^4.15.0
+        version: 4.15.0(vue@3.5.13)
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.8.3)
@@ -2661,6 +2670,18 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@vee-validate/i18n@4.15.0:
+    resolution: {integrity: sha512-XAXoIhcgy4//9WBmxK/6Wnv14Bwkrka/0PMHPOxUhbc8y4QfdIRbyFWvxWZw2nzc6suHrFIePt1mBx91aTqIwg==}
+    dev: false
+
+  /@vee-validate/rules@4.15.0(vue@3.5.13):
+    resolution: {integrity: sha512-Cvll7r98O5tU6ew2AUifVpdhNnTkMTY7+D9N++J7apQXRXWfHMe4tNvjo4TJpKUPCtfLHbdTY/DCquDRc+uH4w==}
+    dependencies:
+      vee-validate: 4.15.0(vue@3.5.13)
+    transitivePeerDependencies:
+      - vue
+    dev: false
 
   /@vercel/nft@0.27.7(rollup@4.40.0):
     resolution: {integrity: sha512-FG6H5YkP4bdw9Ll1qhmbxuE8KwW2E/g8fJpM183fWQLeVDGqzeywMIeJ9h2txdWZ03psgWMn6QymTxaDLmdwUg==}
@@ -8815,6 +8836,16 @@ packages:
   /vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
+    dev: false
+
+  /vee-validate@4.15.0(vue@3.5.13):
+    resolution: {integrity: sha512-PGJh1QCFwCBjbHu5aN6vB8macYVWrajbDvgo1Y/8fz9n/RVIkLmZCJDpUgu7+mUmCOPMxeyq7vXUOhbwAqdXcA==}
+    peerDependencies:
+      vue: ^3.4.26
+    dependencies:
+      '@vue/devtools-api': 7.7.6
+      type-fest: 4.40.0
+      vue: 3.5.13(typescript@5.8.3)
     dev: false
 
   /vite-dev-rpc@1.0.7(vite@6.3.1):

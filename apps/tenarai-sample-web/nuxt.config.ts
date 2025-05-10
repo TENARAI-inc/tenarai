@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
   ],
+  plugins: ['~/plugins/validate'],
   devtools: { enabled: true },
   css: ['~/assets/css/app.css'],
   build: {
