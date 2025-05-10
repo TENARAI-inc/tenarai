@@ -3,7 +3,7 @@
 </template>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 img {
   max-width: 60px;

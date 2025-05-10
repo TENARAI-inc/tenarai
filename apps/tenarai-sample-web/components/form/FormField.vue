@@ -49,7 +49,7 @@ const fields = Array.isArray(props.field)
 </script>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 fieldset {
   padding: calc(var(--unit) * 2) 0 0;

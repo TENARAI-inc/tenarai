@@ -23,7 +23,7 @@ defineProps({
 </script>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .ItemOne {
   --item-one-width: 320px;

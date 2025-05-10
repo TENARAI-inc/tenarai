@@ -67,7 +67,7 @@ const hasError = computed(() => meta.dirty && !meta.valid);
 </script>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .Input {
   --input-shadow: rgba(255, 200, 0, 0.2);

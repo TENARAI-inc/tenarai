@@ -45,7 +45,7 @@ const props = defineProps({
 </script>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .Button {
   --loading-size: 20px;

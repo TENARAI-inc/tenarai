@@ -20,12 +20,12 @@
 </template>
 
 <script setup lang="ts">
-import GlobalHeader from '@/components/GlobalHeader.vue';
-import GlobalFooter from '@/components/GlobalFooter.vue';
+import GlobalHeader from '@/containers/GlobalHeader.vue';
+import GlobalFooter from '@/containers/GlobalFooter.vue';
 </script>
 
 <style scoped lang="css">
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .Privacypolicy__Body {
   text-align: center;

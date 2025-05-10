@@ -61,7 +61,10 @@ const formSchema: FormSchema = {
     label: 'パスワード ',
   },
 };
-const submit = async (formData: FormData, close: Function) => {
+
+formSchema.mail.value = 'dummy@dummy.com';
+
+const submit = async (_formData: FormData, close: Function) => {
   isLoading.value = true;
   await wait(2000);
   isLoading.value = false;
@@ -71,7 +74,7 @@ const submit = async (formData: FormData, close: Function) => {
 </script>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .DialogLogin {
   padding: calc(var(--space-64) * 2) 0;

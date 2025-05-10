@@ -7,40 +7,43 @@
     </NuxtLink>
     <!-- 右側 -->
     <menu ref="menuRef" class="Header__Menu">
-      <li v-if="store.isLogined" class="Header__MenuCart">
-        <NuxtLink to="/">
+      <li>
+        <NuxtLink to="/">トップ</NuxtLink>
+      </li>
+      <li v-if="isLogined" class="Header__MenuCart">
+        <NuxtLink @click.stop.prevent="emit('toggleCart')">
           <IconCart />
           カート
-          <span class="ColorCircle">{{ store.cartItems.length }}</span>
+          <span class="ColorCircle">{{ cartItems.length }}</span>
         </NuxtLink>
       </li>
-      <li v-if="store.isLogined" class="Header__MenuUser">
+      <li v-if="isLogined" class="Header__MenuUser">
         <NuxtLink to="/mypage">
-          {{ store.loginUser?.name }}
+          {{ loginUser?.name }}
           <IconEnvelope />
           <span class="ColorCircle">
-            {{ store.notification.count }}
+            {{ notification.count }}
           </span>
         </NuxtLink>
       </li>
-      <li v-if="store.isLogined" class="Header__MenuLogin">
-        <a @click.stop.prevent="openLogout = true">ログアウト</a>
+      <li v-if="isLogined" class="Header__MenuLogin">
+        <a @click.stop.prevent="logoutOpen = true">ログアウト</a>
       </li>
       <li v-else class="Header__MenuLogin">
-        <a @click.stop.prevent="openLogin = true">ログイン</a>
+        <a @click.stop.prevent="loginOpen = true">ログイン</a>
       </li>
     </menu>
     <!-- ログインダイアログ -->
     <DialogLogin
-      :open="openLogin"
-      @close="openLogin = false"
-      @login="(flg) => store.setLogin(flg)"
+      :open="loginOpen"
+      @close="loginOpen = false"
+      @login="(flg) => emit('login', flg)"
     />
     <!-- ログアウトダイアログ -->
     <DialogConfirm
       title="ログアウト"
-      :open="openLogout"
-      @close="openLogout = false"
+      :open="logoutOpen"
+      @close="logoutOpen = false"
     >
       <template #default="{ close }">
         <div class="DialogConfirm__Body">
@@ -56,23 +59,48 @@
 </template>
 
 <script setup lang="ts">
-import Logo from '~/components/Logo.vue';
-import IconCart from '~/components/icons/IconCart.vue';
-import IconEnvelope from '~/components/icons/IconEnvelope.vue';
-import DialogLogin from '~/components/DialogLogin.vue';
-import { useStore } from '@/composables/useStore';
+import type { PropType } from 'vue';
+import Logo from '@/components/Logo.vue';
+import IconCart from '@/components/icons/IconCart.vue';
+import IconEnvelope from '@/components/icons/IconEnvelope.vue';
+import DialogLogin from '@/components/DialogLogin.vue';
+import type { Item } from '@/types/app';
+import type { Notification } from '@/composables/useStore';
+import type { User } from '@/composables/useAuth';
 
-const store = useStore();
-const openLogin = ref(false);
-const openLogout = ref(false);
+const emit = defineEmits([
+  'login',
+  'logout',
+  'openLogout',
+  'openLogin',
+  'toggleCart',
+]);
+const props = defineProps({
+  loginUser: {
+    type: Object as PropType<User | null>,
+    required: true,
+  },
+  cartItems: {
+    type: Array as PropType<Item[]>,
+    required: true,
+  },
+  notification: {
+    type: Object as PropType<Notification>,
+    required: true,
+  },
+});
+const isLogined = computed(() => props.loginUser !== null);
+
+const loginOpen = ref(false);
+const logoutOpen = ref(false);
 const logout = () => {
-  store.setLogin(false);
-  openLogout.value = false;
+  emit('logout');
+  logoutOpen.value = false;
 };
 </script>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .Header {
   --circle-size: 24px;

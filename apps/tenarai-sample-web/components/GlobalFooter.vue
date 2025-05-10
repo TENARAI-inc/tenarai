@@ -18,11 +18,11 @@
 </template>
 
 <script setup lang="ts">
-import Logo from '~/components/Logo.vue';
+import Logo from '@/components/Logo.vue';
 </script>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 footer {
   position: relative;

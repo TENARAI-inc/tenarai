@@ -25,7 +25,7 @@ defineProps({
 </script>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .DialogConfirm {
   --dialog-bg-color: rgba(0, 0, 0, 0.5);

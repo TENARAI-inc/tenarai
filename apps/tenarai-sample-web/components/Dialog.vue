@@ -16,6 +16,7 @@
 <script setup lang="ts">
 import { watch } from 'vue';
 import { addHtmlClass, removeHtmlClass } from '@/utils/app';
+import { useKeyDown } from '@/composables/useKeyDown';
 
 const emit = defineEmits(['close']);
 const props = defineProps({
@@ -36,30 +37,25 @@ const openFlg = ref(false);
 const close = () => {
   emit('close');
 };
-const onKeyDown = (e: KeyboardEvent) => {
-  if (e.key === 'Escape') {
+
+useKeyDown({
+  onEscape: () => {
     close();
-  }
-};
+  },
+});
 
 watch(props, (p) => {
   openFlg.value = p.open;
   if (openFlg.value) {
     addHtmlClass('-noscroll');
-    document.addEventListener('keydown', onKeyDown);
   } else {
     removeHtmlClass('-noscroll');
-    document.removeEventListener('keydown', onKeyDown);
   }
-});
-
-onUnmounted(() => {
-  document.removeEventListener('keydown', onKeyDown);
 });
 </script>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .Dialog {
   display: flex;

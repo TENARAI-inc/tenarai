@@ -22,7 +22,7 @@ defineProps({
 </script>
 
 <style scoped>
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .ItemList__List {
   display: flex;

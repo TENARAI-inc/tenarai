@@ -28,10 +28,9 @@
 </template>
 
 <script setup lang="ts">
-import GlobalHeader from '@/components/GlobalHeader.vue';
-import GlobalFooter from '@/components/GlobalFooter.vue';
+import GlobalHeader from '@/containers/GlobalHeader.vue';
+import GlobalFooter from '@/containers/GlobalFooter.vue';
 import ItemList from '@/components/home/ItemList.vue';
-
 import { genereateItems } from '@/mock/items';
 
 const items = genereateItems();
@@ -45,7 +44,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang="css">
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .SectionHead {
   text-align: center;

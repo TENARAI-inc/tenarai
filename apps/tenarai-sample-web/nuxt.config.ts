@@ -8,9 +8,9 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
   ],
-  plugins: ['~/plugins/validate'],
+  plugins: ['@/plugins/validate'],
   devtools: { enabled: true },
-  css: ['~/assets/css/app.css'],
+  css: ['@/assets/css/app.css'],
   build: {
     transpile: ['@vee-validate/rules'],
   },

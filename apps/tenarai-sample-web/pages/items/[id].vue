@@ -1,14 +1,9 @@
 <template>
   <main>
     <GlobalHeader />
-    <!-- SectionHead -->
-    <!-- <section class="SectionHead">
-      <h1>Tenarai Sample Web</h1>
-      <p>Welcome to the Tenarai Sample Web!</p>
-    </section> -->
-    <!-- SectionList -->
+
     <section class="SectionItemDetail">
-      <ItemDetail :item="item" />
+      <ItemDetail :item="item" @add-item="(item) => addItem(item)" />
     </section>
 
     <GlobalFooter />
@@ -16,16 +11,21 @@
 </template>
 
 <script setup lang="ts">
-import GlobalHeader from '@/components/GlobalHeader.vue';
-import GlobalFooter from '@/components/GlobalFooter.vue';
+import GlobalHeader from '@/containers/GlobalHeader.vue';
+import GlobalFooter from '@/containers/GlobalFooter.vue';
 import ItemDetail from '@/components/home/ItemDetail.vue';
 import { genereateItemDetail } from '@/mock/items';
+import type { Item } from '@/types/app';
 
+const cart = useCart();
 const item = genereateItemDetail();
+const addItem = (i: Item) => {
+  cart.addCart(i);
+};
 </script>
 
 <style scoped lang="css">
-@import '~/assets/css/_vue.css';
+@import '@/assets/css/_vue.css';
 
 .SectionHead {
   text-align: center;
