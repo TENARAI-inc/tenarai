@@ -14,7 +14,12 @@ export default function Item(app: Express, prisma: PrismaClient) {
 
   app.get('/items/:id', async (req, res) => {
     const { id } = req.params;
-    const item = await prisma.item.findUnique({ where: { id: Number(id) } });
+    const item = await prisma.item.findUnique({
+      where: { id: Number(id) },
+      include: {
+        itemimg: true,
+      },
+    });
     res.json(item);
   });
 
