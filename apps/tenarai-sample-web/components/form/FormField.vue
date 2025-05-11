@@ -52,7 +52,7 @@ const fields = Array.isArray(props.field)
 @import '@/assets/css/_vue.css';
 
 fieldset {
-  padding: calc(var(--unit) * 2) 0 0;
+  padding: var(--space-16) 0 0;
   &.-full {
     .Fields > * {
       flex-grow: 1;
@@ -70,8 +70,8 @@ fieldset {
 
 legend {
   display: inline-block;
-  font-size: 18px;
-  padding: calc(var(--unit) * 2) 0 0;
+  font-size: var(--space-18);
+  padding: var(--space-16) 0 0;
 }
 
 .Fields {
@@ -79,11 +79,11 @@ legend {
 }
 
 .Fields > * + * {
-  margin-left: calc(var(--unit) * 3);
+  margin-left: var(--space-24);
 }
 
 .Errors {
-  padding: calc(var(--unit) * 1) 0 0;
+  padding: var(--space-8) 0 0;
 }
 
 .Errors__Message {

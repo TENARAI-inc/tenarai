@@ -83,7 +83,7 @@ watch(props, (p) => {
   }
 }
 .Dialog__Head {
-  margin-bottom: calc(var(--unit) * 1);
+  margin-bottom: var(--space-8);
 }
 .Dialog__Body {
   width: 80%;

@@ -6,7 +6,7 @@
       <span>Tenarai Sample Web</span>
     </NuxtLink>
     <!-- 右側 -->
-    <menu ref="menuRef" class="Header__Menu">
+    <menu class="Header__Menu">
       <li>
         <NuxtLink to="/" @click="onLickLink">トップ</NuxtLink>
       </li>
@@ -32,6 +32,9 @@
       <li v-else class="Header__MenuLogin">
         <a @click.stop.prevent="loginOpen = true">ログイン</a>
       </li>
+    </menu>
+    <menu class="Header__Menu -mobile">
+      <IconMenu />
     </menu>
     <!-- ログインダイアログ -->
     <DialogLogin
@@ -63,6 +66,7 @@ import type { PropType } from 'vue';
 import Logo from '@/components/Logo.vue';
 import IconCart from '@/components/icons/IconCart.vue';
 import IconEnvelope from '@/components/icons/IconEnvelope.vue';
+import IconMenu from '@/components/icons/IconMenu.vue';
 import DialogLogin from '@/components/DialogLogin.vue';
 import type { Item } from '@/types/app';
 import type { Notification } from '@/composables/useStore';
@@ -112,7 +116,7 @@ const onLickLink = () => {
   position: relative;
   display: flex;
   align-items: center;
-  padding: calc(var(--unit) * 2) calc(var(--unit) * 4);
+  padding: var(--space-16) var(--space-32);
   height: var(--header-height);
 
   position: sticky;
@@ -126,9 +130,9 @@ const onLickLink = () => {
   align-items: center;
 
   span {
-    font-size: 24px;
+    font-size: var(--font-size-24);
     font-weight: bold;
-    margin-left: calc(var(--unit) * 2);
+    margin-left: var(--space-16);
   }
   &:deep(img) {
     max-width: 40px;
@@ -137,6 +141,10 @@ const onLickLink = () => {
 .Header__Menu {
   display: flex;
   margin: 0 0 0 auto;
+
+  &.-mobile {
+    display: none;
+  }
 
   a {
     vertical-align: middle;
@@ -151,7 +159,7 @@ const onLickLink = () => {
   }
 
   li + li {
-    margin-left: calc(var(--unit) * 3);
+    margin-left: var(--space-24);
   }
 }
 .Header__MenuUser {
@@ -170,11 +178,28 @@ const onLickLink = () => {
   width: var(--circle-size);
   height: var(--circle-size);
   border-radius: 50%;
-  font-size: 12px;
+  font-size: var(--font-size-12);
   text-align: center;
   padding: var(--space-4);
   margin-left: var(--space-4);
   vertical-align: 2px;
   line-height: 1.4;
+}
+
+@media (--tablet) {
+  .Header__Logo {
+    span {
+      font-size: var(--font-size-14);
+    }
+  }
+  .Header__Menu {
+    display: none;
+
+    &.-mobile {
+      display: block;
+      margin-left: auto;
+      cursor: pointer;
+    }
+  }
 }
 </style>

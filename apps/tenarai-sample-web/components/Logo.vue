@@ -9,4 +9,9 @@ img {
   max-width: 60px;
   height: auto;
 }
+@media (--tablet) {
+  img {
+    max-width: 40px;
+  }
+}
 </style>

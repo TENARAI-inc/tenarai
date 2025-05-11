@@ -91,4 +91,11 @@ onMounted(async () => {
     margin-bottom: var(--space-16);
   }
 }
+@media (--tablet) {
+  .PageHome__SectionInfo {
+    h2 {
+      font-size: var(--font-size-24);
+    }
+  }
+}
 </style>
