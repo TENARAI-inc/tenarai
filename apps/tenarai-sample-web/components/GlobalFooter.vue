@@ -27,8 +27,8 @@ import Logo from '@/components/Logo.vue';
 footer {
   position: relative;
   color: #666;
-  font-size: 16px;
-  padding: calc(var(--unit) * 8) calc(var(--unit) * 6);
+  font-size: var(--font-size-16);
+  padding: var(--space-64) var(--space-48);
   background-color: #eeeeee;
   background-image: url('/imgs/patterns/dark-tire.png');
 }
@@ -51,14 +51,14 @@ footer {
   display: flex;
   justify-content: center;
   text-align: center;
-  margin-top: calc(var(--unit) * 8);
+  margin-top: var(--space-64);
 }
 .Links {
   text-align: center;
-  margin-top: calc(var(--unit) * 6);
+  margin-top: var(--space-48);
 }
 .Links li + li {
-  margin-top: calc(var(--unit) * 1);
+  margin-top: var(--space-8);
 }
 .Buttons {
   display: flex;
@@ -67,46 +67,46 @@ footer {
   display: inline-block;
 }
 .Buttons li + li {
-  margin-left: calc(var(--unit) * 2);
+  margin-left: var(--space-16);
 }
 .Open {
   text-align: center;
-  margin-top: calc(var(--unit) * 4);
+  margin-top: var(--space-32);
 }
 .Achievements {
-  margin-top: calc(var(--unit) * 4);
+  margin-top: var(--space-32);
   text-align: center;
-  font-size: 24px;
+  font-size: var(--font-size-24);
   font-weight: bold;
 }
 
-@media (--sp) {
+@media (--tablet) {
   footer {
-    font-size: 14px;
-    padding: calc(var(--unit) * 4) calc(var(--unit) * 4);
+    font-size: var(--font-size-14);
+    padding: var(--space-64) 0;
   }
   .Logo {
     width: 180px;
   }
   .Achievements {
-    font-size: 18px;
-    margin-top: calc(var(--unit) * 2);
+    font-size: var(--font-size-18);
+    margin-top: var(--space-16);
   }
   .Info {
     display: block;
-    margin-top: calc(var(--unit) * 4);
+    margin-top: var(--space-32);
   }
   .Links {
-    margin-top: calc(var(--unit) * 2);
+    margin-top: var(--space-16);
   }
   .Buttons {
     display: block;
   }
   .Buttons li + li {
-    margin: calc(var(--unit) * 2) 0;
+    margin: var(--space-16) 0;
   }
   .Open {
-    margin-top: calc(var(--unit) * 2);
+    margin-top: var(--space-16);
   }
 }
 </style>

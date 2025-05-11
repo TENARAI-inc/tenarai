@@ -91,7 +91,7 @@ const hasError = computed(() => meta.dirty && !meta.valid);
 
 .Label {
   display: inline-block;
-  font-size: 18px;
+  font-size: var(--font-size-18);
   padding: 0 0 calc(var(--unit) * 1.5);
 }
 
@@ -101,9 +101,8 @@ textarea {
   border-radius: 6px;
   padding: calc(var(--unit) * 1) calc(var(--unit) * 1.5);
   width: 100%;
-  font-size: 16px;
+  font-size: var(--font-size-16);
   background-color: var(--color-input-bg);
-  /* box-shadow: 0 0 2px 2px var(--input-shadow); */
 
   &:focus {
     outline: none;
@@ -111,7 +110,7 @@ textarea {
 }
 
 .Optional {
-  font-size: 12px;
+  font-size: var(--font-size-12);
   color: #999;
 }
 </style>

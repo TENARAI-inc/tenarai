@@ -34,4 +34,17 @@ defineProps({
 .ItemList__ItemOne {
   margin: var(--space-16);
 }
+
+@media (--tablet) {
+  .ItemList__List {
+    padding: var(--space-16);
+    li {
+      width: 50%;
+      padding: var(--space-8);
+    }
+  }
+  .ItemList__ItemOne {
+    margin: 0;
+  }
+}
 </style>

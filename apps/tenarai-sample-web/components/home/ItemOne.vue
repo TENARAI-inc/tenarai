@@ -65,4 +65,10 @@ const imgUrl = computed(() => {
     margin-bottom: var(--space-8);
   }
 }
+@media (--tablet) {
+  .ItemOne {
+    --item-one-width: 100%;
+    --item-one-height: auto;
+  }
+}
 </style>

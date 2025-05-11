@@ -21,7 +21,7 @@
         <p class="ItemDetail__ItemDes">
           {{ item.description }}
         </p>
-        <div v-if="isLogined">
+        <div v-if="isLogined" class="ItemDetail__Button">
           <Button
             v-if="isCartAdded"
             label="カート追加済"
@@ -101,7 +101,6 @@ const price = dispPrice(props.item?.price);
     object-fit: cover;
   }
 }
-
 .ItemDetail__Info {
   flex: 1 0 auto;
   width: 50%;
@@ -122,5 +121,27 @@ const price = dispPrice(props.item?.price);
 .ItemDetail__Added {
   pointer-events: none;
   opacity: 0.5;
+}
+@media (--tablet) {
+  .ItemDetail {
+    width: 100%;
+    padding: 0 var(--space-24);
+  }
+  .ItemDetail__Body {
+    display: block;
+  }
+  .ItemDetail__Info {
+    width: auto;
+    padding: var(--space-16) 0;
+  }
+  .ItemDetail__ItemTitle {
+    font-size: var(--font-size-24);
+  }
+  .ItemDetail__ItemPrice {
+    font-size: var(--font-size-20);
+  }
+  .ItemDetail__Button {
+    text-align: center;
+  }
 }
 </style>
