@@ -10,13 +10,23 @@ export const useCart = defineStore(
 
     const cartItems = ref<Item[]>([]);
     const addCart = (item: Item) => {
-      cartItems.value.push(item);
+      cartItems.value.unshift(item);
     };
     const deleteItem = (item: Item) => {
       cartItems.value = cartItems.value.filter((i) => i.id !== item.id);
     };
+    const isCartAdded = (item: Item) => {
+      return !!cartItems.value.find((i) => i.id === item.id);
+    };
 
-    return { cartItems, addCart, deleteItem, visibleCart, showCart };
+    return {
+      cartItems,
+      addCart,
+      deleteItem,
+      visibleCart,
+      showCart,
+      isCartAdded,
+    };
   },
   {
     persist: true,

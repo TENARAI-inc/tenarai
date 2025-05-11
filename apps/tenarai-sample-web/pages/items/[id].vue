@@ -12,6 +12,8 @@
         <ItemDetail
           v-if="visibleDetail"
           :item="currentItem"
+          :is-cart-added="cart.isCartAdded(currentItem!)"
+          :is-logined="auth.isLogined"
           @add-item="(item) => addItem(item)"
         />
       </Transition>
@@ -29,11 +31,13 @@ import Loading from '@/components/Loading.vue';
 
 import type { Item } from '@/types/app';
 import { useItem } from '@/composables/useItem';
+import { useAuth } from '@/composables/useAuth';
 
 const route = useRoute();
 const id = route.params.id as string;
 const uitem = useItem();
 const cart = useCart();
+const auth = useAuth();
 const currentItem = ref<Item | null>(null);
 const addItem = (i: Item) => {
   cart.addCart(i);

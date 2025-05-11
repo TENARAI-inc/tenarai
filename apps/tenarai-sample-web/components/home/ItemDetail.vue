@@ -21,7 +21,19 @@
         <p class="ItemDetail__ItemDes">
           {{ item.description }}
         </p>
-        <Button label="カートに追加" color @click="emit('addItem', item)" />
+        <div v-if="isLogined">
+          <Button
+            v-if="isCartAdded"
+            label="カート追加済"
+            class="ItemDetail__Added"
+          />
+          <Button
+            v-else
+            label="カートに追加"
+            color
+            @click="emit('addItem', item)"
+          />
+        </div>
       </div>
     </div>
     <div v-else>
@@ -41,6 +53,14 @@ const emit = defineEmits(['addItem']);
 const props = defineProps({
   item: {
     type: Object as PropType<Item | null>,
+    required: true,
+  },
+  isCartAdded: {
+    type: Boolean,
+    required: true,
+  },
+  isLogined: {
+    type: Boolean,
     required: true,
   },
 });
@@ -98,5 +118,9 @@ const price = dispPrice(props.item?.price);
 .ItemDetail__ItemDes {
   font-size: var(--font-size-18);
   margin: var(--space-32) 0;
+}
+.ItemDetail__Added {
+  pointer-events: none;
+  opacity: 0.5;
 }
 </style>

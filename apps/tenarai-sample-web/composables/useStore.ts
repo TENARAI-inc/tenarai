@@ -7,11 +7,8 @@ export type Notification = {
 export const useStore = defineStore(
   'appstore',
   () => {
-    /**
-     * notification
-     */
     const notification = ref<Notification>({
-      count: 5,
+      count: 3,
     });
 
     return { notification };

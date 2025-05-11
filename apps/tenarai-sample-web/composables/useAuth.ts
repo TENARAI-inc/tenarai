@@ -15,9 +15,6 @@ const dummuyUser: User = {
 export const useAuth = defineStore(
   'auth',
   () => {
-    /**
-     * login user
-     */
     const loginUser = ref<User | null>(null);
     const isLogined = computed(() => {
       return loginUser.value !== null;

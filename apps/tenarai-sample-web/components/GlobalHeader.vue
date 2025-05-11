@@ -10,13 +10,6 @@
       <li>
         <NuxtLink to="/" @click="onLickLink">トップ</NuxtLink>
       </li>
-      <li v-if="isLogined" class="Header__MenuCart">
-        <NuxtLink @click.stop.prevent="emit('toggleCart')">
-          <IconCart />
-          カート
-          <span class="ColorCircle">{{ cartItems.length }}</span>
-        </NuxtLink>
-      </li>
       <li v-if="isLogined" class="Header__MenuUser">
         <NuxtLink to="/mypage" @click="onLickLink">
           {{ loginUser?.name }}
@@ -24,6 +17,13 @@
           <span class="ColorCircle">
             {{ notification.count }}
           </span>
+        </NuxtLink>
+      </li>
+      <li v-if="isLogined" class="Header__MenuCart">
+        <NuxtLink @click.stop.prevent="emit('toggleCart')">
+          <IconCart />
+          カート
+          <span class="ColorCircle">{{ cartItems.length }}</span>
         </NuxtLink>
       </li>
       <li v-if="isLogined" class="Header__MenuLogin">

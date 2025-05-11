@@ -23,7 +23,6 @@ defineProps({
 });
 
 const onLoad = () => {
-  console.log('Image loaded');
   klass.value = {
     '-loaded': true,
   };
