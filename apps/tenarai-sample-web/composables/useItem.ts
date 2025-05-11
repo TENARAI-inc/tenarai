@@ -8,31 +8,31 @@ export type Notification = {
 export const useItem = defineStore(
   'item',
   () => {
+    const isLoading = ref(false);
     const items = ref<Item[]>([]);
     const fetchItems = async () => {
-      const { data, error } = await useFetch('/api/items/');
-      if (error.value) {
-        console.error('Error fetching items:', error.value);
+      try {
+        isLoading.value = true;
+        const res = await $fetch('/api/items/');
+        items.value = res as Item[];
+        isLoading.value = false;
+        return res;
+      } catch (error) {
         return null;
-      }
-      if (data.value) {
-        items.value = data.value as Item[];
       }
     };
     const fetchItem = async (id: number) => {
-      console.log('fetchItemかいし');
-      const { data, error } = await useFetch(`/api/items/${id}`);
-      if (error.value) {
-        console.error('Error fetching item:', error.value);
+      try {
+        isLoading.value = true;
+        const res = await $fetch(`/api/items/${id}`);
+        isLoading.value = false;
+        return res as Item;
+      } catch (error) {
         return null;
       }
-      if (data.value) {
-        return data.value as Item;
-      }
-      return null;
     };
 
-    return { fetchItems, fetchItem, items };
+    return { fetchItems, fetchItem, items, isLoading };
   },
   {
     persist: true,

@@ -8,7 +8,7 @@
     <!-- 右側 -->
     <menu ref="menuRef" class="Header__Menu">
       <li>
-        <NuxtLink to="/">トップ</NuxtLink>
+        <NuxtLink to="/" @click="onLickLink">トップ</NuxtLink>
       </li>
       <li v-if="isLogined" class="Header__MenuCart">
         <NuxtLink @click.stop.prevent="emit('toggleCart')">
@@ -18,7 +18,7 @@
         </NuxtLink>
       </li>
       <li v-if="isLogined" class="Header__MenuUser">
-        <NuxtLink to="/mypage">
+        <NuxtLink to="/mypage" @click="onLickLink">
           {{ loginUser?.name }}
           <IconEnvelope />
           <span class="ColorCircle">
@@ -69,6 +69,7 @@ import type { Notification } from '@/composables/useStore';
 import type { User } from '@/composables/useAuth';
 
 const emit = defineEmits([
+  'close',
   'login',
   'logout',
   'openLogout',
@@ -96,6 +97,9 @@ const logoutOpen = ref(false);
 const logout = () => {
   emit('logout');
   logoutOpen.value = false;
+};
+const onLickLink = () => {
+  emit('close');
 };
 </script>
 

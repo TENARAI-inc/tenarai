@@ -1,7 +1,7 @@
 <template>
   <div class="ItemOne">
     <NuxtLink class="ItemOne__Link" :to="`/items/${item.id}`">
-      <img class="ItemOne__Img" :src="imgUrl" :alt="item.name" />
+      <Image class="ItemOne__Img" :src="imgUrl" :alt="item.name" />
     </NuxtLink>
     <div class="ItemOne__Text">
       <h2>{{ item.name }}</h2>
@@ -13,6 +13,7 @@
 <script setup lang="ts">
 import type { Item } from '@/types/app';
 import type { PropType } from 'vue';
+import Image from '@/components/Image.vue';
 
 const props = defineProps({
   item: {
@@ -46,19 +47,15 @@ const imgUrl = computed(() => {
 }
 .ItemOne__Link {
   display: block;
-  width: var(--item-one-width);
-  height: var(--item-one-height);
   overflow: hidden;
   border-radius: var(--border-radius);
   margin-bottom: var(--space-16);
 }
 .ItemOne__Img {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: var(--item-one-width);
+  height: var(--item-one-height);
   object-fit: cover;
-
-  transition: all 0.2s ease;
 }
 .ItemOne__Text {
   font-size: var(--font-size-16);

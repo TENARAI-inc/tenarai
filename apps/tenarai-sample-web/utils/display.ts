@@ -1,6 +1,6 @@
-export const dispPrice = (price: number) => {
+export const dispPrice = (price: number | undefined) => {
   return new Intl.NumberFormat('ja-JP', {
     style: 'currency',
     currency: 'JPY',
-  }).format(price);
+  }).format(price || 0);
 };
