@@ -44,13 +44,12 @@
           </div>
           <div>
             <dt>電話番号</dt>
-            <dd>080-9999-9999</dd>
+            <dd>090-9999-9999</dd>
           </div>
         </dl>
         <p></p>
         <h2>保有ポイント</h2>
         <p class="Mypage__Point">44444 ポイント</p>
-        <p>cart {{ cart.visibleCart }}</p>
       </div>
     </section>
     <GlobalFooter />

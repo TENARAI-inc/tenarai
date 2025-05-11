@@ -11,5 +11,5 @@ export type Item = {
   price: number;
   description: string;
   createdAt: string;
-  itemimgs: ItemImg[];
+  itemimg: ItemImg[];
 };

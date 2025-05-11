@@ -3,7 +3,7 @@ import { PrismaClient } from '../generated/prisma/client.js';
 
 export default function Item(app: Express, prisma: PrismaClient) {
   // GET
-  app.get('/items', async (req, res) => {
+  app.get('/api/items', async (req, res) => {
     const items = await prisma.item.findMany({
       include: {
         itemimg: true,
@@ -12,14 +12,19 @@ export default function Item(app: Express, prisma: PrismaClient) {
     res.json(items);
   });
 
-  app.get('/items/:id', async (req, res) => {
+  app.get('/api/items/:id', async (req, res) => {
     const { id } = req.params;
-    const item = await prisma.item.findUnique({ where: { id: Number(id) } });
+    const item = await prisma.item.findUnique({
+      where: { id: Number(id) },
+      include: {
+        itemimg: true,
+      },
+    });
     res.json(item);
   });
 
   // POST
-  app.post('/items', async (req, res) => {
+  app.post('/api/items', async (req, res) => {
     const params = req.body;
     const item = await prisma.item.create({
       data: params,
@@ -28,7 +33,7 @@ export default function Item(app: Express, prisma: PrismaClient) {
   });
 
   // PUT
-  app.put('/items/:id', async (req, res) => {
+  app.put('/api/items/:id', async (req, res) => {
     const { id } = req.params;
     const prams = req.body;
     const item = await prisma.item.update({
@@ -39,7 +44,7 @@ export default function Item(app: Express, prisma: PrismaClient) {
   });
 
   // DELETE
-  app.delete('/items/:id', async (req, res) => {
+  app.delete('/api/items/:id', async (req, res) => {
     const { id } = req.params;
     const item = await prisma.item.delete({ where: { id: Number(id) } });
     res.json(item);

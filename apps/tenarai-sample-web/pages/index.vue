@@ -1,17 +1,21 @@
 <template>
-  <main>
+  <main class="PageHome">
     <GlobalHeader />
-    <!-- SectionHead -->
-    <section class="SectionHead">
+    <section class="PageHome__SectionHead">
       <h1>Tenarai Sample Web</h1>
       <p>Welcome to the Tenarai Sample Web!</p>
     </section>
-    <!-- SectionList -->
-    <section class="SectionList">
-      <ItemList :items="items" />
+    <section class="PageHome__SectionList">
+      <!-- Loading -->
+      <div v-if="!visibleList" class="PageHome__Loading">
+        <Loading />
+      </div>
+      <!-- リスト -->
+      <Transition name="fade">
+        <ItemList v-if="visibleList" :items="uitem.items" />
+      </Transition>
     </section>
-    <!-- SectionInfo -->
-    <section class="SectionInfo">
+    <section class="PageHome__SectionInfo">
       <h2>お知らせ</h2>
       <p>お知らせが入ります。</p>
       <p>
@@ -31,22 +35,26 @@
 import GlobalHeader from '@/containers/GlobalHeader.vue';
 import GlobalFooter from '@/containers/GlobalFooter.vue';
 import ItemList from '@/components/home/ItemList.vue';
-import { genereateItems } from '@/mock/items';
+import Loading from '@/components/Loading.vue';
+import { useItem } from '@/composables/useItem';
 
-const items = genereateItems();
-const openDialog = ref(false);
+const uitem = useItem();
+const visibleList = computed(() => {
+  return uitem.items.length > 0 && !uitem.isLoading;
+});
 
-onMounted(() => {
-  setTimeout(() => {
-    openDialog.value = true;
-  }, 0);
+onMounted(async () => {
+  await uitem.fetchItems();
 });
 </script>
 
 <style scoped lang="css">
 @import '@/assets/css/_vue.css';
 
-.SectionHead {
+.PageHome {
+  --loading-size: 40px;
+}
+.PageHome__SectionHead {
   text-align: center;
   padding: var(--space-64) 0;
   font-size: var(--font-size-18);
@@ -56,10 +64,17 @@ onMounted(() => {
     margin-bottom: var(--space-16);
   }
 }
-.SectionList {
+.PageHome__Loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  width: 100%;
+}
+.PageHome__SectionList {
   padding: 0 0 var(--space-64);
 }
-.SectionInfo {
+.PageHome__SectionInfo {
   text-align: center;
   background-color: #333;
   color: white;
