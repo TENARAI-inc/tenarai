@@ -15,14 +15,19 @@ jobs:
           node-version: 22.14.0 # 必要なNode.jsのバージョンを指定
 
       - name: Install pnpm
-        run: npm install -g pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Setup database
+        run: pnpm --filter=backend backend:setup
 
       - name: Cypress run
         # uses: cypress-io/github-action@v6
         # with:
         #   start: pnpm cy:ci
         run: pnpm cy:ci
-        # run: pnpm --filter=backend backend:ci
