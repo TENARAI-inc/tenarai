@@ -25,4 +25,4 @@ jobs:
         # with:
         #   start: pnpm cy:ci
         # run: pnpm cy:ci
-        run: pnpm --filter=backend dev
+        run: pnpm --filter=backend backend:ci
