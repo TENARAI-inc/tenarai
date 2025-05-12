@@ -21,6 +21,7 @@ jobs:
         run: pnpm install
 
       - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          start: pnpm cy:ci
+        # uses: cypress-io/github-action@v6
+        # with:
+        #   start: pnpm cy:ci
+        run: pnpm cy:ci
