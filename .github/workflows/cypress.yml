@@ -24,5 +24,5 @@ jobs:
         # uses: cypress-io/github-action@v6
         # with:
         #   start: pnpm cy:ci
-        # run: pnpm cy:ci
-        run: pnpm --filter=backend backend:ci
+        run: pnpm cy:ci
+        # run: pnpm --filter=backend backend:ci
