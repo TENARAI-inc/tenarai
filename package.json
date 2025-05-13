@@ -7,7 +7,7 @@
     "lint": "pnpm --filter=tenarai-sample-web lint",
     "build": "pnpm --filter=tenarai-sample-web build",
     "generate": "pnpm --filter=tenarai-sample-web generate",
-    "cy:ci": "(pnpm --filter=tenarai-sample-web dev & wait-on http://localhost:3000) & (pnpm --filter=backend backend:ci & wait-on http://localhost:3200) & (pnpm --filter=tenarai-sample-web cy:run)"
+    "cy:ci": "(pnpm --filter=backend backend:ci & wait-on http://localhost:3200) & (pnpm --filter=tenarai-sample-web dev & wait-on http://localhost:3000) & (pnpm --filter=tenarai-sample-web cy:run)"
   },
   "keywords": [],
   "author": "",
