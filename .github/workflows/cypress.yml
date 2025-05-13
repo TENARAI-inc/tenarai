@@ -26,8 +26,12 @@ jobs:
       - name: Setup database
         run: pnpm --filter=backend backend:setup
 
+      - name: Cypress install
+        run: |
+          cd apps/tenarai-sample-web
+          pnpm cypress install
+        # uses: cypress-io/github-action@v6
+        # with:
+        #   start: pnpm cy:ci
       - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          start: pnpm cy:ci
-        # run: pnpm cy:ci
+        run: pnpm cy:ci
