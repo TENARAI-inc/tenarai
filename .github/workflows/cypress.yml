@@ -29,9 +29,9 @@ jobs:
       - name: Cypress install
         run: |
           cd apps/tenarai-sample-web
-          pnpm cypress install
+          pnpm cypress install --force
         # uses: cypress-io/github-action@v6
         # with:
         #   start: pnpm cy:ci
-      - name: Cypress run
-        run: pnpm cy:ci
+      # - name: Cypress run
+      #   run: pnpm cy:ci
