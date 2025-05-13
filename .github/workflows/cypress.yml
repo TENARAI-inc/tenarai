@@ -27,7 +27,7 @@ jobs:
         run: pnpm --filter=backend backend:setup
 
       - name: Cypress run
-        # uses: cypress-io/github-action@v6
-        # with:
-        #   start: pnpm cy:ci
-        run: pnpm cy:ci
+        uses: cypress-io/github-action@v6
+        with:
+          start: pnpm cy:ci
+        # run: pnpm cy:ci
