@@ -83,7 +83,7 @@ const emit = defineEmits([
 const props = defineProps({
   loginUser: {
     type: Object as PropType<User | null>,
-    required: true,
+    default: null,
   },
   cartItems: {
     type: Array as PropType<Item[]>,

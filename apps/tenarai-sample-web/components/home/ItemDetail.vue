@@ -53,7 +53,7 @@ const emit = defineEmits(['addItem']);
 const props = defineProps({
   item: {
     type: Object as PropType<Item | null>,
-    required: true,
+    default: null,
   },
   isCartAdded: {
     type: Boolean,
