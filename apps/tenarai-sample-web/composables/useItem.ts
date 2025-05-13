@@ -1,10 +1,6 @@
 import { defineStore } from 'pinia';
 import type { Item } from '@/types/app';
 
-export type Notification = {
-  count: number;
-};
-
 export const useItem = defineStore(
   'item',
   () => {
