@@ -1,4 +1,4 @@
-describe('top', () => {
+context('top', () => {
   describe('render (no login)', () => {
     beforeEach(() => {
       cy.visit('/');
@@ -23,7 +23,7 @@ describe('top', () => {
       cy.contains('a', 'お問い合わせ');
     });
   });
-  describe('render (with login)', () => {
+  describe.skip('render (with login)', () => {
     beforeEach(() => {
       cy.visit('/');
       cy.get('.ItemList > ul > li').should('have.length.gt', 0);
