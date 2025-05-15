@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "test": "vitest",
     "cy:open": "cypress open",
-    "cy:run": "cypress run --quiet"
+    "cy:run": "cypress run --quiet",
+    "cy:backend": "cd ../backend && pnpm dev"
   },
   "dependencies": {
     "@nuxt/image": "1.10.0",

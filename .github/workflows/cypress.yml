@@ -43,3 +43,4 @@ jobs:
           build: pnpm cy:backend
           start: pnpm cy:run
           wait-on: 'http://localhost:3000'
+          working-directory: apps/tenarai-sample-web
