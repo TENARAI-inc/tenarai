@@ -35,10 +35,11 @@ jobs:
         run: |
           cd apps/tenarai-sample-web
           pnpm cypress install --force
-        # uses: cypress-io/github-action@v6
-        # with:
-        #   start: pnpm cy:run
-        #   working-directory: apps/tenarai-sample-web
-        #   wait-on: 'http://localhost:3100'
+
       - name: Cypress run
-        run: pnpm cy:ci
+        # run: pnpm cy:ci
+        uses: cypress-io/github-action@v6
+        with:
+          build: pnpm cy:backend
+          start: pnpm cy:run
+          wait-on: 'http://localhost:3000'
