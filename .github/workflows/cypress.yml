@@ -35,6 +35,7 @@ jobs:
         run: |
           cd apps/tenarai-sample-web
           pnpm cypress install --force
+          npm i -g Xvfb
         # uses: cypress-io/github-action@v6
         # with:
         #   start: pnpm cy:run
