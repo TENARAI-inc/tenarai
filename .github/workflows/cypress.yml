@@ -10,14 +10,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # - name: Setup Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 22.14.0 # 必要なNode.jsのバージョンを指定
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        # with:
-        #   version: 8
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -40,9 +34,3 @@ jobs:
       - name: Cypress run
         run: |
           pnpm cy:ci
-        # uses: cypress-io/github-action@v6
-        # with:
-        #   build: pnpm cy:backend
-        #   start: pnpm cy:run
-        #   wait-on: 'http://localhost:3000'
-        #   working-directory: apps/tenarai-sample-web

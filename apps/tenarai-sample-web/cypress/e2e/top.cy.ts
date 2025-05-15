@@ -1,6 +1,6 @@
 describe('top', () => {
-  describe('render (no login)', { testIsolation: false }, () => {
-    before(() => {
+  describe('render (no login)', () => {
+    beforeEach(() => {
       cy.visit('/');
     });
     it('render header', () => {
