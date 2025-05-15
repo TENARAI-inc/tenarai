@@ -1,5 +1,5 @@
 describe('top', () => {
-  describe.only('render (no login)', { testIsolation: false }, () => {
+  describe('render (no login)', { testIsolation: false }, () => {
     before(() => {
       cy.visit('/');
     });
@@ -24,7 +24,7 @@ describe('top', () => {
     });
   });
   describe('render (with login)', () => {
-    before(() => {
+    beforeEach(() => {
       cy.visit('/');
       cy.get('.ItemList > ul > li').should('have.length.gt', 0);
       cy.get('header').contains('a', 'ログイン').click();
