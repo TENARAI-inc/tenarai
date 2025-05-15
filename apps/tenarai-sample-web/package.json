@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "test": "vitest",
     "cy:open": "cypress open",
-    "cy:run": "cypress run --quiet",
+    "cy:run": "start-server-and-test 'pnpm dev' http://localhost:3000 'cypress run --quiet'",
     "cy:backend": "cd ../backend && pnpm dev"
   },
   "dependencies": {
@@ -32,6 +32,7 @@
     "eslint": "^9.25.0",
     "happy-dom": "^17.4.7",
     "postcss-custom-media": "^11.0.5",
+    "start-server-and-test": "^2.0.12",
     "vitest": "^3.1.3"
   }
 }

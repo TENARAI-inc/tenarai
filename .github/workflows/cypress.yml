@@ -29,18 +29,19 @@ jobs:
         run: pnpm install
 
       - name: Setup database
-        run: pnpm --filter=backend backend:setup
-
-      - name: Cypress install
         run: |
-          cd apps/tenarai-sample-web
-          pnpm cypress install --force
+          pnpm --filter=backend backend:setup
+          pnpm cy:backend
 
+      # - name: Cypress install
+      #   run: |
+      #     cd apps/tenarai-sample-web
+      #     pnpm cypress install --force
       - name: Cypress run
-        # run: pnpm cy:ci
-        uses: cypress-io/github-action@v6
-        with:
-          build: pnpm cy:backend
-          start: pnpm cy:run
-          wait-on: 'http://localhost:3000'
-          working-directory: apps/tenarai-sample-web
+        run: pnpm cy:ci
+        # uses: cypress-io/github-action@v6
+        # with:
+        #   build: pnpm cy:backend
+        #   start: pnpm cy:run
+        #   wait-on: 'http://localhost:3000'
+        #   working-directory: apps/tenarai-sample-web
