@@ -31,10 +31,12 @@ jobs:
       - name: Setup database
         run: |
           pnpm --filter=backend backend:setup
-      # - name: Cypress install
-      #   run: |
-      #     cd apps/tenarai-sample-web
-      #     pnpm cypress install --force
+
+      - name: Cypress install
+        run: |
+          cd apps/tenarai-sample-web
+          pnpm cypress install --force
+
       - name: Cypress run
         run: |
           pnpm cy:ci
