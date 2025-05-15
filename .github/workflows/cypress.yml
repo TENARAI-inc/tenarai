@@ -5,7 +5,7 @@ on: push
 jobs:
   cypress-run:
     runs-on: ubuntu-24.04
-    container: cypress/base:22.15.0
+    container: cypress/browsers:22.15.0
     steps:
       - name: Checkout
         uses: actions/checkout@v4
