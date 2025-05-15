@@ -1,7 +1,7 @@
 context('top', () => {
   describe('render (no login)', () => {
     beforeEach(() => {
-      cy.visit('/');
+      cy.visit('http://localhost:3000/');
     });
     it('render header', () => {
       cy.get('header').within(() => {
