@@ -7,9 +7,9 @@
     "lint": "pnpm --filter=tenarai-sample-web lint",
     "build": "pnpm --filter=tenarai-sample-web build",
     "generate": "pnpm --filter=tenarai-sample-web generate",
-    "cy:backend": "(pnpm --filter=backend backend:ci",
+    "cy:backend": "pnpm --filter=backend backend:ci",
     "cy:run": "pnpm --filter=tenarai-sample-web cy:run",
-    "cy:ci": "pnpm --filter=tenarai-sample-web cy:run"
+    "cy:ci": "pnpm cy:backend & pnpm cy:run"
   },
   "keywords": [],
   "author": "",
