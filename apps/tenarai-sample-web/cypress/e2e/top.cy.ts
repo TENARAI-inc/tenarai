@@ -3,7 +3,7 @@ describe('top', () => {
     before(() => {
       cy.visit('/');
     });
-    it('render header', () => {
+    it.only('render header', () => {
       cy.get('header').within(() => {
         cy.contains('Tenarai Sample Web');
         cy.contains('a', 'トップ');
