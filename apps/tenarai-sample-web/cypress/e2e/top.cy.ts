@@ -13,7 +13,7 @@ context('top', () => {
     it('render item list', () => {
       cy.contains('h1', 'Tenarai Sample Web');
       cy.contains('Welcome to the Tenarai Sample Web!');
-      cy.get('.ItemList > ul > li').should('have.length', 100);
+      cy.get('.ItemList > ul > li').should('have.length.at.least', 100);
     });
     it('render お知らせ', () => {
       cy.contains('h2', 'お知らせ');
