@@ -23,7 +23,7 @@ context('top', () => {
       cy.contains('a', 'お問い合わせ');
     });
   });
-  describe.skip('render (with login)', () => {
+  describe('render (with login)', () => {
     beforeEach(() => {
       cy.visit('/');
       cy.get('.ItemList > ul > li').should('have.length.gt', 0);
