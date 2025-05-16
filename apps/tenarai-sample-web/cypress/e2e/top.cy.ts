@@ -1,6 +1,6 @@
 context('top', () => {
-  describe('render (no login)', () => {
-    beforeEach(() => {
+  describe('render (no login)', { testIsolation: false }, () => {
+    before(() => {
       cy.visit('http://localhost:3000/');
     });
     it('render header', () => {
