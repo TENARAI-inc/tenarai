@@ -74,7 +74,7 @@ async function bulkInsertItemImg() {
 
   const itemImgs = Array.from({ length: 100 }, (_, i) => {
     if (colors.length === 0) {
-      colors = shuffle(['ed5a5a', '5aed5a', '5a5aed', 'ed5aed', 'eded5a']);
+      colors = shuffle(['ed5a5a', 'db4e4e']);
     }
 
     const color = colors.pop();
