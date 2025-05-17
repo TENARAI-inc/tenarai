@@ -36,6 +36,7 @@ Cypress.Commands.add('login', () => {
 Cypress.Commands.add('goToDetail', (id: number = 1) => {
   cy.get(`a[href="/items/${id}"]`).click();
   cy.url().should('include', `/items/${id}`);
+  cy.noLoading();
   cy.get('h1').should('contain', `アイテム${id}`);
 });
 Cypress.Commands.add('noLoading', () => {
