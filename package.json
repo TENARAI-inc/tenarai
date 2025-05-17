@@ -9,8 +9,8 @@
     "generate": "pnpm --filter=tenarai-sample-web generate",
     "cy:backend": "pnpm --filter=backend backend:ci",
     "cy:run": "pnpm --filter=tenarai-sample-web cy:run",
-    "cy:ci": "pnpm cy:backend & pnpm cy:run",
-    "cy:open": "pnpm cy:backend & pnpm --filter=tenarai-sample-web cy:open"
+    "cy:ci": "pnpm cy:backend & pnpm --filter=integration cy:run",
+    "cy:open": "pnpm cy:backend & pnpm --filter=tenarai-sample-web dev & pnpm --filter=integration cy:open"
   },
   "keywords": [],
   "author": "",

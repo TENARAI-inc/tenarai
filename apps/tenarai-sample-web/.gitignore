@@ -23,7 +23,3 @@ logs
 .env.*
 !.env.example
 
-# cypress
-cypress/downloads/*
-cypress/videos/*
-cypress/screenshots/*

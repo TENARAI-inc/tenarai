@@ -9,10 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "test": "vitest",
-    "cy:open": "cypress open --e2e --browser chrome",
-    "cy:run": "CYPRESS_CI=true start-server-and-test 'pnpm dev' http://localhost:3000 'cypress run --browser chrome --quiet'",
-    "cy:backend": "cd ../backend && pnpm dev"
+    "test": "vitest"
   },
   "dependencies": {
     "@nuxt/image": "1.10.0",
