@@ -28,7 +28,7 @@ jobs:
 
       - name: Cypress install
         run: |
-          cd apps/tenarai-sample-web
+          cd apps/integration
           pnpm cypress install --force
           pnpm cypress info
 
