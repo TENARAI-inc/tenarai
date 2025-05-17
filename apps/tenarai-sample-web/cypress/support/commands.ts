@@ -26,6 +26,7 @@
 
 Cypress.Commands.add('login', () => {
   cy.noLoading();
+  cy.get('.ItemList > ul > li').should('have.length.gt', 0);
   cy.get('header').contains('a', 'ログイン').click();
   cy.contains('dialog', 'ログイン').within(() => {
     cy.get('input[type="password"]').type('123');
