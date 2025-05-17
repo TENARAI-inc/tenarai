@@ -36,12 +36,20 @@ Cypress.Commands.add('login', () => {
   cy.contains('dialog', 'ログイン').should('not.exist');
 });
 Cypress.Commands.add('goToDetail', (id: number = 1) => {
+  cy.intercept('/api/items/*').as('getItem');
   cy.get('.ItemList > ul > li').should('have.length.gt', id);
   cy.get(`a[href="/items/${id}"]`).click();
   cy.url().should('include', `/items/${id}`);
+  cy.wait('@getItem');
   cy.noLoading();
   cy.get('h1').should('contain', `アイテム${id}`);
 });
 Cypress.Commands.add('noLoading', () => {
   cy.get('.loader').should('not.exist');
+});
+Cypress.Commands.add('visitAndWaitItems', (path: string) => {
+  cy.intercept('/api/items/').as('getItems');
+  cy.visit(path);
+  cy.wait('@getItems');
+  cy.noLoading();
 });

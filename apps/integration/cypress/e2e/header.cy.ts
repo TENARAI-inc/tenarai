@@ -1,7 +1,7 @@
 context('header', () => {
   describe('no login', () => {
     beforeEach(() => {
-      cy.visit('/');
+      cy.visitAndWaitItems('/');
       cy.noLoading();
     });
     describe('render', () => {
@@ -23,7 +23,7 @@ context('header', () => {
   });
   describe('with login', () => {
     beforeEach(() => {
-      cy.visit('/');
+      cy.visitAndWaitItems('/');
       cy.login();
     });
     describe('render', () => {
@@ -39,22 +39,5 @@ context('header', () => {
         cy.contains('a', 'ログアウト');
       });
     });
-    // describe('action', () => {
-    //   it('go to detail', () => {
-    //     cy.goToDetail();
-    //   });
-    //   it('go to user page', () => {
-    //     cy.contains('a', 'ジョン・ドゥ').click();
-    //     cy.contains('h1', 'マイページ');
-    //   });
-    //   it('go to user page', () => {
-    //     cy.contains('a', 'カート').click();
-    //     cy.contains('h2', 'カート 0点');
-    //     cy.contains('button', 'お支払いへ進む');
-    //   });
-    //   it('logout', () => {
-    //     cy.contains('a', 'ログアウト').click();
-    //   });
-    // });
   });
 });

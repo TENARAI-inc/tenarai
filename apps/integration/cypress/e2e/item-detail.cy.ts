@@ -1,6 +1,6 @@
 context('item-detail', () => {
   beforeEach(() => {
-    cy.visit('/');
+    cy.visitAndWaitItems('/');
     cy.noLoading();
   });
   describe('render', () => {
