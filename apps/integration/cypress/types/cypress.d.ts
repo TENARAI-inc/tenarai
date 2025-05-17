@@ -2,7 +2,7 @@
 
 declare namespace Cypress {
   interface Chainable {
-    visitAndWaitItems(path: string): void;
+    goToTop(): void;
     noLoading(): void;
     login(): void;
     goToDetail(id?: number): void;

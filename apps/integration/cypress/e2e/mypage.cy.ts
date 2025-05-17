@@ -1,7 +1,7 @@
 context('mypage', () => {
   describe('normal', () => {
     beforeEach(() => {
-      cy.visitAndWaitItems('/');
+      cy.goToTop();
       cy.login();
       cy.contains('a', 'ジョン・ドゥ').click();
     });

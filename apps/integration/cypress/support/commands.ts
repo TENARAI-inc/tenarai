@@ -47,9 +47,9 @@ Cypress.Commands.add('goToDetail', (id: number = 1) => {
 Cypress.Commands.add('noLoading', () => {
   cy.get('.loader').should('not.exist');
 });
-Cypress.Commands.add('visitAndWaitItems', (path: string) => {
+Cypress.Commands.add('goToTop', () => {
   cy.intercept('/api/items/').as('getItems');
-  cy.visit(path);
+  cy.visit('/');
   cy.wait('@getItems');
   cy.noLoading();
 });

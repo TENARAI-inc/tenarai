@@ -1,7 +1,7 @@
 context('header', () => {
   describe('no login', () => {
     beforeEach(() => {
-      cy.visitAndWaitItems('/');
+      cy.goToTop();
       cy.noLoading();
     });
     describe('render', () => {
@@ -23,7 +23,7 @@ context('header', () => {
   });
   describe('with login', () => {
     beforeEach(() => {
-      cy.visitAndWaitItems('/');
+      cy.goToTop();
       cy.login();
     });
     describe('render', () => {

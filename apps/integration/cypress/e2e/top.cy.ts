@@ -2,7 +2,7 @@ context('top', () => {
   describe('no login', () => {
     describe('render', { testIsolation: false }, () => {
       before(() => {
-        cy.visitAndWaitItems('/');
+        cy.goToTop();
       });
       it.only('items', () => {
         cy.contains('h1', 'Tenarai Sample Web');
@@ -19,7 +19,7 @@ context('top', () => {
     });
     describe('action', () => {
       before(() => {
-        cy.visitAndWaitItems('/');
+        cy.goToTop();
       });
       it('go to detail', () => {
         cy.goToDetail();
@@ -28,7 +28,7 @@ context('top', () => {
   });
   describe('with login', () => {
     beforeEach(() => {
-      cy.visitAndWaitItems;
+      cy.goToTop;
       cy.login();
     });
     describe('render', () => {

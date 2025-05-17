@@ -1,7 +1,7 @@
 context('cart', () => {
   describe('add item to cart', () => {
     beforeEach(() => {
-      cy.visitAndWaitItems('/');
+      cy.goToTop();
       cy.login();
     });
     it('add and show cart', () => {
