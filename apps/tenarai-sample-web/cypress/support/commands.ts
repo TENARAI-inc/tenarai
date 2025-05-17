@@ -35,6 +35,7 @@ Cypress.Commands.add('login', () => {
   cy.contains('dialog', 'ログイン').should('not.exist');
 });
 Cypress.Commands.add('goToDetail', (id: number = 1) => {
+  cy.get('.ItemList > ul > li').should('have.length.gt', id);
   cy.get(`a[href="/items/${id}"]`).click();
   cy.url().should('include', `/items/${id}`);
   cy.noLoading();
