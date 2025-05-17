@@ -37,3 +37,10 @@ jobs:
           pnpm cy:ci
         env:
           PROXY_API_URL: http://localhost:3100
+
+      - name: Cypress videos
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress videos
+          path: apps/tenarai-sample-web/cypress/videos
