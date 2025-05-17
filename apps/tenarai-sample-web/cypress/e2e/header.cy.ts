@@ -2,6 +2,7 @@ context('header', () => {
   describe('no login', () => {
     beforeEach(() => {
       cy.visit('/');
+      cy.noLoading();
     });
     describe('render', () => {
       it('render header', () => {

@@ -1,6 +1,7 @@
 context('item-detail', () => {
   beforeEach(() => {
     cy.visit('/');
+    cy.noLoading();
   });
   describe('render', () => {
     it('render (no login)', () => {

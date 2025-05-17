@@ -3,6 +3,7 @@ context('top', () => {
     describe('render', { testIsolation: false }, () => {
       before(() => {
         cy.visit('/');
+        cy.noLoading();
       });
       it('items', () => {
         cy.contains('h1', 'Tenarai Sample Web');
@@ -20,6 +21,7 @@ context('top', () => {
     describe('action', () => {
       before(() => {
         cy.visit('/');
+        cy.noLoading();
       });
       it('go to detail', () => {
         cy.goToDetail();
