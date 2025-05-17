@@ -1,45 +1,45 @@
 context('top', () => {
-  describe('render (no login)', { testIsolation: false }, () => {
-    before(() => {
-      cy.visit('http://localhost:3000/');
-    });
-    it('render header', () => {
-      cy.get('header').within(() => {
-        cy.contains('Tenarai Sample Web');
-        cy.contains('a', 'トップ');
-        cy.contains('a', 'ログイン');
+  describe('no login', () => {
+    describe('render', { testIsolation: false }, () => {
+      before(() => {
+        cy.visit('/');
+      });
+      it('items', () => {
+        cy.contains('h1', 'Tenarai Sample Web');
+        cy.contains('Welcome to the Tenarai Sample Web!');
+        cy.get('.ItemList > ul > li').should('have.length.at.least', 100);
+      });
+      it('お知らせ', () => {
+        cy.contains('h2', 'お知らせ');
+      });
+      it('footer', () => {
+        cy.contains('a', 'プライバシーポリシー');
+        cy.contains('a', 'お問い合わせ');
       });
     });
-    it('render item list', () => {
-      cy.contains('h1', 'Tenarai Sample Web');
-      cy.contains('Welcome to the Tenarai Sample Web!');
-      cy.get('.ItemList > ul > li').should('have.length.at.least', 100);
-    });
-    it('render お知らせ', () => {
-      cy.contains('h2', 'お知らせ');
-    });
-    it('render footer', () => {
-      cy.contains('a', 'プライバシーポリシー');
-      cy.contains('a', 'お問い合わせ');
+    describe('action', () => {
+      before(() => {
+        cy.visit('/');
+      });
+      it('go to detail', () => {
+        cy.goToDetail();
+      });
     });
   });
-  describe('render (with login)', () => {
+  describe('with login', () => {
     beforeEach(() => {
       cy.visit('/');
-      cy.get('.ItemList > ul > li').should('have.length.gt', 0);
-      cy.get('header').contains('a', 'ログイン').click();
-      cy.contains('dialog', 'ログイン').within(() => {
-        cy.get('input[type="password"]').type('123');
-        cy.contains('button', 'ログイン').click();
-      });
-      cy.contains('dialog', 'ログイン').should('not.exist');
+      cy.login();
     });
-    it('render header', () => {
-      cy.contains('a', 'トップ');
-      cy.contains('a', 'ジョン・ドゥ');
-      cy.contains('a', 'カート');
-      cy.contains('a', 'ログイン').should('not.exist');
-      cy.contains('a', 'ログアウト');
+    describe('render', () => {
+      it('items', () => {
+        cy.get('.ItemList > ul > li').should('have.length.gt', 0);
+      });
+    });
+    describe('action', () => {
+      it('go to detail', () => {
+        cy.goToDetail();
+      });
     });
   });
 });
