@@ -1,0 +1,47 @@
+name: Cypress Tests
+
+on: push
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-24.04
+    container: cypress/browsers:22.15.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Setup database
+        run: |
+          pnpm --filter=backend backend:setup
+
+      - name: Cypress install
+        run: |
+          cd apps/integration
+          pnpm cypress install --force
+          pnpm cypress info
+
+      - name: Cypress run
+        run: |
+          pnpm cy:ci
+        env:
+          PROXY_API_URL: http://localhost:3100
+          CYPRESS_CI: true
+
+      - name: Cypress videos
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress videos
+          path: apps/tenarai-sample-web/cypress/videos

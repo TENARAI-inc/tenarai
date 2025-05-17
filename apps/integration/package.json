@@ -1,0 +1,19 @@
+{
+  "name": "integration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd ../tenarai-sample-web && pnpm dev",
+    "cy:open": "cypress open --e2e --browser chrome",
+    "cy:run": "CYPRESS_CI=true start-server-and-test 'pnpm dev' http://localhost:3000 'cypress run --browser chrome --quiet'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^14.3.3",
+    "start-server-and-test": "^2.0.12",
+    "typescript": "^5.8.3"
+  }
+}

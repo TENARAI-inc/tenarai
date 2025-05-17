@@ -50,7 +50,7 @@ async function bulkInsertUser() {
 async function bulkInsertItem() {
   const items = Array.from({ length: 100 }, (_, i) => ({
     name: `アイテム${i + 1}`,
-    price: Math.floor(Math.random() * 1000) + 1,
+    price: (i + 1) * 100,
     description: `アイテム${i + 1}の説明`,
   }));
 
@@ -74,7 +74,7 @@ async function bulkInsertItemImg() {
 
   const itemImgs = Array.from({ length: 100 }, (_, i) => {
     if (colors.length === 0) {
-      colors = shuffle(['ed5a5a', '5aed5a', '5a5aed', 'ed5aed', 'eded5a']);
+      colors = shuffle(['ed5a5a', 'db4e4e']);
     }
 
     const color = colors.pop();

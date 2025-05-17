@@ -66,7 +66,7 @@ formSchema.mail.value = 'dummy@dummy.com';
 
 const submit = async (_formData: FormData, close: Function) => {
   isLoading.value = true;
-  await wait(2000);
+  await wait(process.env.CYPRESS_CI ? 0 : 1000);
   isLoading.value = false;
   emit('login', true);
   close();
