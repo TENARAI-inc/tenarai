@@ -50,7 +50,7 @@ async function bulkInsertUser() {
 async function bulkInsertItem() {
   const items = Array.from({ length: 100 }, (_, i) => ({
     name: `アイテム${i + 1}`,
-    price: Math.floor(Math.random() * 1000) + 1,
+    price: (i + 1) * 100,
     description: `アイテム${i + 1}の説明`,
   }));
 

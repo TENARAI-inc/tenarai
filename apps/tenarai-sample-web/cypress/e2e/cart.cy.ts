@@ -18,9 +18,8 @@ context('cart', () => {
       cy.get('aside')
         .contains('li', 'アイテム3')
         .within(() => {
-          cy.contains('￥259');
+          cy.contains('￥3,000');
           cy.contains('アイテム3の説明');
-          cy.contains('￥259');
         });
     });
     it('remove from cart', () => {
