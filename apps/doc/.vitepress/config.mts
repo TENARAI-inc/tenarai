@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   title: 'tenarai-doc',
   description: 'tenarai how to',
+  base: '/tenarai/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
