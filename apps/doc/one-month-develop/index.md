@@ -6,7 +6,7 @@
 Vue という reactive な ライブラリをコアとした包括的な web サイト作成ツールが Nuxt です。  
 同様のツールに Next（React）があります。
 
-[基礎とコンポーネント](./week01)  
-[データ取得・送信と型](./week02)  
-[unit テストと integration テスト](./week03)  
-[開発の基本手順](./week04)
+[基礎とコンポーネント](./week01/)  
+[データ取得・送信と型](./week02/)  
+[unit テストと integration テスト](./week03/)  
+[開発の基本手順](./week04/)
