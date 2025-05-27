@@ -5,6 +5,10 @@ export default defineConfig({
   title: 'tenarai-doc',
   description: 'tenarai how to',
   base: '/tenarai/',
+  ignoreDeadLinks: [
+    // ignore all localhost links
+    /^https?:\/\/localhost/,
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
