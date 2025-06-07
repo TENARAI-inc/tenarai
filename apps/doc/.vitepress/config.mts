@@ -88,10 +88,38 @@ export default defineConfig({
                   {
                     text: 'データ取得と送信',
                     link: '/one-month-develop/week02/week02-01',
+                    items: [
+                      {
+                        text: 'REST api',
+                      },
+                      {
+                        text: 'fetch を利用したデータ取得',
+                      },
+                      {
+                        text: 'http ステータスコード',
+                      },
+                      {
+                        text: '同期処理と非同期処理',
+                      },
+                      {
+                        text: 'プロミスの活用',
+                      },
+                    ],
                   },
                   {
                     text: '型とtypescript',
                     link: '/one-month-develop/week02/week02-02',
+                    items: [
+                      {
+                        text: 'typescript を使ってみる',
+                      },
+                      {
+                        text: 'vue での typescirpt の利用',
+                      },
+                      {
+                        text: '例',
+                      },
+                    ],
                   },
                   {
                     text: 'cssとレスポンシブ',
