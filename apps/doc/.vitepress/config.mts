@@ -122,7 +122,7 @@ export default defineConfig({
                     ],
                   },
                   {
-                    text: 'cssとレスポンシブ',
+                    text: 'CSSとレスポンシブ',
                     link: '/one-month-develop/week02/week02-03',
                   },
                 ],
