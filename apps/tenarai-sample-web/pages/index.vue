@@ -5,6 +5,9 @@
       <h1>Tenarai Sample Web</h1>
       <p>Welcome to the Tenarai Sample Web!</p>
     </section>
+    <section>
+      <Banner />
+    </section>
     <section class="PageHome__SectionList">
       <!-- Loading -->
       <div v-if="!visibleList" class="PageHome__Loading">
@@ -14,6 +17,9 @@
       <Transition name="fade">
         <ItemList v-if="visibleList" :items="uitem.items" />
       </Transition>
+    </section>
+    <section>
+      <Banner text="ポイントアップキャンペーン実施中" />
     </section>
     <section class="PageHome__SectionInfo">
       <h2>お知らせ</h2>
@@ -36,6 +42,7 @@ import GlobalHeader from '@/containers/GlobalHeader.vue';
 import GlobalFooter from '@/containers/GlobalFooter.vue';
 import ItemList from '@/components/home/ItemList.vue';
 import Loading from '@/components/Loading.vue';
+import Banner from '@/components/curriculum/Banner.vue';
 import { useItem } from '@/composables/useItem';
 
 const uitem = useItem();
@@ -72,12 +79,13 @@ onMounted(async () => {
   width: 100%;
 }
 .PageHome__SectionList {
-  padding: 0 0 var(--space-64);
+  padding: 0 0 var(--space-24);
 }
 .PageHome__SectionInfo {
   text-align: center;
   background-color: #333;
   color: white;
+  margin-top: var(--space-32);
   padding: var(--space-64) var(--space-32);
   height: 600px;
 

@@ -80,7 +80,7 @@ async function bulkInsertItemImg() {
     const color = colors.pop();
     return {
       itemId: i + 1,
-      url: `https://fakeimg.pl/640x360/${color}/fff?text=${String(
+      url: `https://placehold.jp/${color}/ffffff/640x360.png?text=${String(
         i + 1
       ).padStart(3, '0')}.png`,
     };

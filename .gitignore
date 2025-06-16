@@ -135,6 +135,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-
 generated
-
+apps/tenarai-sample-web/components/curriculum/*
