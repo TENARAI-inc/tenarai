@@ -34,50 +34,54 @@ export default defineConfig({
                   {
                     text: '基礎項目',
                     link: '/one-month-develop/week01/week01-01',
-                    items: [
-                      {
-                        text: '変数をつかってテキストを表示する ',
-                        link: '/one-month-develop/week01/week01-01#変数をつかってテキストを表示する',
-                      },
-                      {
-                        text: '関数',
-                        link: '/one-month-develop/week01/week01-01#関数',
-                      },
-                      {
-                        text: '配列',
-                        link: '/one-month-develop/week01/week01-01#配列',
-                      },
-                      {
-                        text: 'オブジェクトとjson',
-                        link: '/one-month-develop/week01/week01-01#オブジェクトと-json',
-                      },
-                      {
-                        text: '配列とリスト表示',
-                        link: '/one-month-develop/week01/week01-01#配列とリスト表示',
-                      },
-                    ],
+                    // items: [
+                    //   {
+                    //     text: '変数をつかってテキストを表示する ',
+                    //     link: '/one-month-develop/week01/week01-01#変数をつかってテキストを表示する',
+                    //   },
+                    //   {
+                    //     text: '関数',
+                    //     link: '/one-month-develop/week01/week01-01#関数',
+                    //   },
+                    //   {
+                    //     text: '配列',
+                    //     link: '/one-month-develop/week01/week01-01#配列',
+                    //   },
+                    //   {
+                    //     text: 'オブジェクトとjson',
+                    //     link: '/one-month-develop/week01/week01-01#オブジェクトと-json',
+                    //   },
+                    //   {
+                    //     text: '配列とリスト表示',
+                    //     link: '/one-month-develop/week01/week01-01#配列とリスト表示',
+                    //   },
+                    // ],
                   },
                   {
                     text: 'コンポーネント',
                     link: '/one-month-develop/week01/week01-02',
-                    items: [
-                      {
-                        text: 'シングルファイルコンポーネント ',
-                        link: '/one-month-develop/week01/week01-02#シングルファイルコンポーネント',
-                      },
-                      {
-                        text: 'コンポーネントにプロパティをセットする',
-                        link: '/one-month-develop/week01/week01-02#コンポーネントにプロパティをセットする',
-                      },
-                      {
-                        text: 'コンポーネントからイベントをもらう',
-                        link: '/one-month-develop/week01/week01-02#コンポーネントからイベントをもらう',
-                      },
-                      {
-                        text: '共通関数を用意して使う',
-                        link: '/one-month-develop/week01/week01-02#共通関数を用意して使う',
-                      },
-                    ],
+                    // items: [
+                    //   {
+                    //     text: 'シングルファイルコンポーネント ',
+                    //     link: '/one-month-develop/week01/week01-02#シングルファイルコンポーネント',
+                    //   },
+                    //   {
+                    //     text: 'コンポーネントにプロパティをセットする',
+                    //     link: '/one-month-develop/week01/week01-02#コンポーネントにプロパティをセットする',
+                    //   },
+                    //   {
+                    //     text: 'コンポーネントからイベントをもらう',
+                    //     link: '/one-month-develop/week01/week01-02#コンポーネントからイベントをもらう',
+                    //   },
+                    //   {
+                    //     text: '共通関数を用意して使う',
+                    //     link: '/one-month-develop/week01/week01-02#共通関数を用意して使う',
+                    //   },
+                    // ],
+                  },
+                  {
+                    text: '実務',
+                    link: '/one-month-develop/week01/week01-03',
                   },
                 ],
               },

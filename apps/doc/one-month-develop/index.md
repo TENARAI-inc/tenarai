@@ -10,3 +10,7 @@ Vue という reactive な ライブラリをコアとした包括的な web サ
 [データ取得・送信と型](./week02/)  
 [unit テストと integration テスト](./week03/)  
 [開発の基本手順](./week04/)
+
+## 実務のやり方
+
+[実務のやり方](./zitsumu/)
