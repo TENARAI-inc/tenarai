@@ -80,8 +80,12 @@ export default defineConfig({
                     // ],
                   },
                   {
-                    text: '実務',
+                    text: '実務1（第 1 週） ',
                     link: '/one-month-develop/week01/week01-03',
+                  },
+                  {
+                    text: '実務2（第 1 週） ',
+                    link: '/one-month-develop/week01/week01-04',
                   },
                 ],
               },

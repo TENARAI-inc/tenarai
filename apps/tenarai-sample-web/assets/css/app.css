@@ -19,6 +19,7 @@
   --space-4: calc(var(--unit) * 0.5);
   --space-2: calc(var(--unit) * 0.25);
   /* font-size */
+  --font-size-40: calc(var(--unit) * 5);
   --font-size-32: calc(var(--unit) * 4);
   --font-size-28: calc(var(--unit) * 3.5);
   --font-size-24: calc(var(--unit) * 3);
